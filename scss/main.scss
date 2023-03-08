@@ -1,0 +1,12 @@
+// base
+@import 'base/reset';
+
+//module
+@import 'modules/color';
+@import 'modules/font';
+
+//pages
+@import 'layout/header';
+
+//bootstrap
+@import '../node_modules/bootstrap/scss/bootstrap';
