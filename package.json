@@ -1,5 +1,13 @@
 {
+  "name": "guideclass",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "start": "nuxt start"
+  },
   "dependencies": {
+    "nuxt": "^3.5.2",
     "bootstrap": "^5.2.3"
   }
 }
