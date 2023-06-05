@@ -1,0 +1,34 @@
+.mypoint {
+  min-height: 80vh;
+  // background-color: $bg-light-blue;
+  .main {
+    h2 > span {
+      color: $primary;
+      font-weight: 700;
+    }
+
+    .remians {
+      color: $primary;
+      text-shadow: $white 4px 4px;
+      .icon-point {
+        width: 100%;
+        font-size: 72px;
+        text-align: center;
+      }
+
+      .wording-point {
+        width: 100%;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+    }
+
+    table {
+      text-align: center;
+      border: $white 3px solid;
+      tr {
+        margin: 10px auto;
+      }
+    }
+  }
+}
