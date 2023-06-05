@@ -1,0 +1,60 @@
+.teacher-detail {
+  min-height: 80vh;
+  .information {
+    background-color: $bg-light-blue;
+    border: 2px $primary solid;
+
+    .content {
+      max-height: 400px;
+      overflow: auto;
+    }
+  }
+
+  .dollar {
+    width: 100%;
+    padding: 50%;
+    background-image: url('../img/dollar.png');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+    p {
+      position: absolute;
+      left: calc(50% - 4rem);
+      top: calc(50% - 1.75rem);
+    }
+  }
+
+  .schedule {
+    overflow: auto;
+    table td {
+      border: 1px solid $primary;
+      text-align: center;
+      min-width: 5rem;
+      vertical-align: middle;
+
+      i {
+        font-size: 3rem;
+        color: $primary;
+        text-shadow: $warning 3px 3px;
+      }
+    }
+    .day {
+      background-color: $primary;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 0.5rem 0.5rem 0 0;
+      border: $bg-light-blue 1px solid;
+      color: $white;
+    }
+
+    .time {
+      text-align: center;
+      padding: 1rem;
+      background-color: $primary;
+      border-radius: 0.5rem 0 0 0.5rem;
+      border: $bg-light-blue 1px solid;
+      color: $white;
+    }
+  }
+}
