@@ -1,32 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Guide Class</title>
-    <script
-      src="https://kit.fontawesome.com/de0f812dc0.js"
-      crossorigin="anonymous"
-    ></script>
-    <link href="../asset/style/main.css" type="text/css" rel="stylesheet" />
-  </head>
-  <body>
+<template>
+  <div>
     <div class="container-fluid header-space mypoint">
       <div class="container">
         <div class="row pt-5 justify-content-center">
-          <section class="tab col-lg-9 col-12">
-            <ul class="nav nav-tabs">
-              <li class="nav-item">
-                <a class="nav-link" href="#">會籍資料</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">點數查詢</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">我的課表</a>
-              </li>
-            </ul>
-          </section>
+          <MemberTabComponent></MemberTabComponent>
           <section class="main col-lg-9 col-12 mt-5">
             <div class="row px-5">
               <h2 class="text-center">
@@ -34,7 +11,9 @@
               </h2>
               <div class="remians p-5">
                 <p class="icon-point">
-                  <i class="fa-solid fa-sack-dollar"></i>
+                  <font-awesome-icon
+                    icon="fas fa-sack-dollar"
+                  ></font-awesome-icon>
                 </p>
                 <p class="wording-point">
                   剩餘 <br />
@@ -86,10 +65,5 @@
         </div>
       </div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+  </div>
+</template>

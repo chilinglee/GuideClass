@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Guide Class</title>
-    <script
-      src="https://kit.fontawesome.com/de0f812dc0.js"
-      crossorigin="anonymous"
-    ></script>
-    <link href="../asset/style/main.css" type="text/css" rel="stylesheet" />
-  </head>
-  <body>
+<template>
+  <div>
     <section class="teacher-detail header-space container-fluid">
       <div class="container p-5">
         <div class="information p-5">
@@ -22,7 +11,7 @@
                 class="mx-auto w-100 mb-3"
               />
               <button class="btn btn-warning w-100 text-light">
-                <i class="fa-regular fa-heart"></i> 收藏
+                <font-awesome-icon icon="far fa-heart"></font-awesome-icon> 收藏
               </button>
             </div>
             <div class="col-12 col-md-8 col-xl-6">
@@ -52,13 +41,15 @@
                 </p>
               </div>
               <button class="btn btn-primary text-light w-100 mt-3">
-                <i class="fa-solid fa-calendar-day"></i>
+                <font-awesome-icon
+                  icon="fas fa-calendar-day"
+                ></font-awesome-icon>
                 立即預約
               </button>
               <button
                 class="btn btn-warning w-100 my-2 text-light d-block d-xl-none"
               >
-                <i class="fa-regular fa-heart"></i> 收藏
+                <font-awesome-icon icon="far fa-heart"></font-awesome-icon> 收藏
               </button>
             </div>
           </div>
@@ -71,7 +62,7 @@
               <table class="mt-4 col-12 col-lg-8 table">
                 <thead>
                   <tr>
-                    <th class="col-1"></th>
+                    <th class="col-1 bg-transparent"></th>
                     <th class="day col-1">Mon.</th>
                     <th class="day col-1">Tue.</th>
                     <th class="day col-1">Wed.</th>
@@ -85,7 +76,10 @@
                   <tr>
                     <th class="time">
                       00:00 <br />
-                      <i class="fa-solid fa-arrow-down"></i> <br />
+                      <font-awesome-icon
+                        icon="fas fa-arrow-down"
+                      ></font-awesome-icon>
+                      <br />
                       08:00
                     </th>
                     <td></td>
@@ -99,21 +93,47 @@
                   <tr>
                     <th class="time">
                       08:00 <br />
-                      <i class="fa-solid fa-arrow-down"></i> <br />
+                      <font-awesome-icon
+                        icon="fas fa-arrow-down"
+                      ></font-awesome-icon>
+                      <br />
                       12:00
                     </th>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
+                    <td>
+                      <font-awesome-icon
+                        icon="fas fa-circle-check"
+                      ></font-awesome-icon>
+                    </td>
+                    <td>
+                      <font-awesome-icon
+                        icon="fas fa-circle-check"
+                      ></font-awesome-icon>
+                    </td>
+                    <td>
+                      <font-awesome-icon
+                        icon="fas fa-circle-check"
+                      ></font-awesome-icon>
+                    </td>
+                    <td>
+                      <font-awesome-icon
+                        icon="fas fa-circle-check"
+                      ></font-awesome-icon>
+                    </td>
+                    <td>
+                      <font-awesome-icon
+                        icon="fas fa-circle-check"
+                      ></font-awesome-icon>
+                    </td>
                     <td></td>
                     <td></td>
                   </tr>
                   <tr>
                     <th class="time">
                       12:00 <br />
-                      <i class="fa-solid fa-arrow-down"></i> <br />
+                      <font-awesome-icon
+                        icon="fas fa-arrow-down"
+                      ></font-awesome-icon>
+                      <br />
                       18:00
                     </th>
                     <td></td>
@@ -127,7 +147,10 @@
                   <tr>
                     <th class="time">
                       18:00 <br />
-                      <i class="fa-solid fa-arrow-down"></i> <br />
+                      <font-awesome-icon
+                        icon="fa-solid fa-arrow-down"
+                      ></font-awesome-icon>
+                      <br />
                       24:00
                     </th>
                     <td></td>
@@ -145,10 +168,5 @@
         </div>
       </div>
     </section>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+  </div>
+</template>

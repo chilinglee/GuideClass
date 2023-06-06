@@ -1,25 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Guide Class</title>
-    <script
-      src="https://kit.fontawesome.com/de0f812dc0.js"
-      crossorigin="anonymous"
-    ></script>
-    <link href="../asset/style/main.css" type="text/css" rel="stylesheet" />
-  </head>
-  <body>
+<template>
+  <div>
     <section class="login-register header-space container-fluid">
       <div class="container p-5">
         <div class="row justify-content-center">
           <div class="col-12 col-md-8 col-lg-6">
             <div class="member-form p-4 p-lg-5">
               <h3 class="text-primary text-center my-3">
-                <span class="underline">會員登入</span>
+                <span class="underline">會員註冊</span>
               </h3>
               <form>
+                <div class="mb-3">
+                  <label for="" class="form-label">帳號名稱</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id=""
+                    aria-describedby=""
+                  />
+                </div>
                 <div class="mb-3">
                   <label for="" class="form-label">電子郵箱</label>
                   <input
@@ -33,9 +31,13 @@
                   <label for="" class="form-label">密碼</label>
                   <input type="password" class="form-control" id="" />
                 </div>
+                <div class="mb-3">
+                  <label for="" class="form-label">確認密碼</label>
+                  <input type="password" class="form-control" id="" />
+                </div>
                 <div class="w-100 text-center">
                   <button type="submit" class="btn btn-warning text-light">
-                    登入
+                    註冊
                   </button>
                 </div>
               </form>
@@ -44,10 +46,5 @@
         </div>
       </div>
     </section>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+  </div>
+</template>

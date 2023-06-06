@@ -5,19 +5,19 @@
         <div class="row text-secondary">
           <div class="col-12 col-lg-4 my-5">
             <p class="w-100 text-center text-primary mb-2 fs-2">
-              <i class="fa-brands fa-facebook"></i>
+              <font-awesome-icon icon="fab fa-facebook"></font-awesome-icon>
             </p>
             <p class="w-100 text-center">GuideClass蓋教室線上語言家教平臺</p>
           </div>
           <div class="col-12 col-lg-4 my-5">
             <p class="w-100 text-center text-danger mb-2 fs-2">
-              <i class="fa-regular fa-envelope"></i>
+              <font-awesome-icon icon="far fa-envelope"></font-awesome-icon>
             </p>
             <p class="w-100 text-center">customerservice@guideclass.com</p>
           </div>
           <div class="col-12 col-lg-4 my-5">
             <p class="w-100 text-center mb-2 fs-2 icon-insta">
-              <i class="fa-brands fa-instagram"></i>
+              <font-awesome-icon icon="fab fa-instagram"></font-awesome-icon>
             </p>
             <p class="w-100 text-center">guideclassguideworld</p>
           </div>

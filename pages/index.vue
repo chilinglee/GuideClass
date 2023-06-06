@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Guide Class</title>
-    <script
-      src="https://kit.fontawesome.com/de0f812dc0.js"
-      crossorigin="anonymous"
-    ></script>
-    <link href="../asset/style/main.css" type="text/css" rel="stylesheet" />
-  </head>
-  <body>
+<template>
+  <div>
     <section class="banner">
       <div class="container">
         <div class="row">
           <div class="banner-pic col-lg-8 col-12 order-lg-last">
-            <img src="/img/3784896.png" alt="GuideClassMainImg" class="w-100" />
+            <img
+              src="../assets/images/3784896.png"
+              alt="GuideClassMainImg"
+              class="w-100"
+            />
           </div>
           <div
             class="banner-copy col-lg-4 col-12 d-flex flex-column justify-content-center my-3 my-lg-0"
@@ -58,7 +51,10 @@
                   class="card-img-top w-100"
                   alt="kimi san"
                 />
-                <p class="rating-star"><i class="fa-solid fa-star"></i> 4.99</p>
+                <p class="rating-star">
+                  <font-awesome-icon icon="fas fa-star"></font-awesome-icon>
+                  4.99
+                </p>
               </div>
               <div class="card-body p-3">
                 <h6 class="card-subtitle mb-2 text-muted">JLPT 日檢</h6>
@@ -76,13 +72,26 @@
                     <div class="col-10">
                       <p class="m-0">2022.12.24</p>
                       <p class="w-100 text-truncate m-0">
-                        <i class="fa-solid fa-star text-warning"></i>
-                        <i class="fa-solid fa-star text-warning"></i>
-                        <i class="fa-solid fa-star text-warning"></i>
-                        <i class="fa-solid fa-star text-warning"></i>
-                        <i
-                          class="fa-solid fa-star-half-stroke text-warning"
-                        ></i>
+                        <font-awesome-icon
+                          icon="fas fa-star"
+                          class="text-warning"
+                        ></font-awesome-icon>
+                        <font-awesome-icon
+                          icon="fas fa-star"
+                          class="text-warning"
+                        ></font-awesome-icon>
+                        <font-awesome-icon
+                          icon="fas fa-star"
+                          class="text-warning"
+                        ></font-awesome-icon>
+                        <font-awesome-icon
+                          icon="fas fa-star"
+                          class="text-warning"
+                        ></font-awesome-icon>
+                        <font-awesome-icon
+                          icon="fas fa-star-half-stroke"
+                          class="text-warning"
+                        ></font-awesome-icon>
                       </p>
                     </div>
                   </div>
@@ -108,7 +117,10 @@
                   class="card-img-top w-100"
                   alt="tammy"
                 />
-                <p class="rating-star"><i class="fa-solid fa-star"></i> 4.99</p>
+                <p class="rating-star">
+                  <font-awesome-icon icon="fas fa-star"></font-awesome-icon>
+                  4.99
+                </p>
               </div>
               <div class="card-body p-3">
                 <h6 class="card-subtitle mb-2 text-muted">商業英語</h6>
@@ -128,13 +140,26 @@
                     <div class="col-10">
                       <p class="m-0">2022.12.01</p>
                       <p class="w-100 text-truncate m-0">
-                        <i class="fa-solid fa-star text-warning"></i>
-                        <i class="fa-solid fa-star text-warning"></i>
-                        <i class="fa-solid fa-star text-warning"></i>
-                        <i class="fa-solid fa-star text-warning"></i>
-                        <i
-                          class="fa-solid fa-star-half-stroke text-warning"
-                        ></i>
+                        <font-awesome-icon
+                          icon="fas fa-star"
+                          class="text-warning"
+                        ></font-awesome-icon>
+                        <font-awesome-icon
+                          icon="fas fa-star"
+                          class="text-warning"
+                        ></font-awesome-icon>
+                        <font-awesome-icon
+                          icon="fas fa-star"
+                          class="text-warning"
+                        ></font-awesome-icon>
+                        <font-awesome-icon
+                          icon="fas fa-star"
+                          class="text-warning"
+                        ></font-awesome-icon>
+                        <font-awesome-icon
+                          icon="fas fa-star-half-stroke"
+                          class="text-warning"
+                        ></font-awesome-icon>
                       </p>
                     </div>
                   </div>
@@ -159,7 +184,10 @@
                   class="card-img-top w-100"
                   alt=""
                 />
-                <p class="rating-star"><i class="fa-solid fa-star"></i> 4.99</p>
+                <p class="rating-star">
+                  <font-awesome-icon icon="fas fa-star"></font-awesome-icon>
+                  4.99
+                </p>
               </div>
               <div class="card-body p-3">
                 <h6 class="card-subtitle mb-2 text-muted">韓語口説</h6>
@@ -177,13 +205,26 @@
                     <div class="col-10">
                       <p class="m-0">2022.10.21</p>
                       <p class="w-100 text-truncate m-0">
-                        <i class="fa-solid fa-star text-warning"></i>
-                        <i class="fa-solid fa-star text-warning"></i>
-                        <i class="fa-solid fa-star text-warning"></i>
-                        <i class="fa-solid fa-star text-warning"></i>
-                        <i
-                          class="fa-solid fa-star-half-stroke text-warning"
-                        ></i>
+                        <font-awesome-icon
+                          icon="fas fa-star"
+                          class="text-warning"
+                        ></font-awesome-icon>
+                        <font-awesome-icon
+                          icon="fas fa-star"
+                          class="text-warning"
+                        ></font-awesome-icon>
+                        <font-awesome-icon
+                          icon="fas fa-star"
+                          class="text-warning"
+                        ></font-awesome-icon>
+                        <font-awesome-icon
+                          icon="fas fa-star"
+                          class="text-warning"
+                        ></font-awesome-icon>
+                        <font-awesome-icon
+                          icon="fas fa-star-half-stroke"
+                          class="text-warning"
+                        ></font-awesome-icon>
                       </p>
                     </div>
                   </div>
@@ -210,21 +251,25 @@
         </h2>
         <div class="row">
           <div class="col-12 col-lg-4 my-5">
-            <img src="../img/4936927.jpg" alt="anywhere" class="w-100" />
+            <img
+              src="../assets/images/4936927.jpg"
+              alt="anywhere"
+              class="w-100"
+            />
             <h3 class="text-center mt-2">
               任何時間 <span class="text-warning">不論地點</span> <br />
               只要有手機/筆電都能上課
             </h3>
           </div>
           <div class="col-12 col-lg-4 my-5">
-            <img src="../img/3661727.jpg" alt="pro" class="w-100" />
+            <img src="../assets/images/3661727.jpg" alt="pro" class="w-100" />
             <h3 class="text-center mt-2">
               安心挑選 <span class="text-warning">通過檢核</span>
               <br />的專業教師
             </h3>
           </div>
           <div class="col-12 col-lg-4 my-5">
-            <img src="../img/6342757.jpg" alt="safe" class="w-100" />
+            <img src="../assets/images/6342757.jpg" alt="safe" class="w-100" />
             <h3 class="text-center mt-2">
               <span class="text-warning">安全支付</span>
               <br />輕鬆預約
@@ -242,7 +287,7 @@
               <p class="step-title fs-5 px-2 py-1 text-warning">STEP 1</p>
               <h3 class="step-content text-center">購買需要<br />的點數</h3>
               <p class="step-icon p-3 m-0 fs-md-2 fs-5">
-                <i class="fa-solid fa-coins"></i>
+                <font-awesome-icon icon="fas fa-coins"></font-awesome-icon>
               </p>
             </div>
           </div>
@@ -251,7 +296,9 @@
               <p class="step-title fs-5 px-2 py-1 text-warning">STEP 2</p>
               <h3 class="step-content text-center">搜尋專業<br />語言老師</h3>
               <p class="step-icon p-3 m-0 fs-md-2 fs-5">
-                <i class="fa-solid fa-chalkboard-user"></i>
+                <font-awesome-icon
+                  icon="fas fa-chalkboard-user"
+                ></font-awesome-icon>
               </p>
             </div>
           </div>
@@ -260,7 +307,9 @@
               <p class="step-title fs-5 px-2 py-1 text-warning">STEP 3</p>
               <h3 class="step-content text-center">預約時間<br />支付點數</h3>
               <p class="step-icon p-3 m-0 fs-md-2 fs-5">
-                <i class="fa-solid fa-calendar-check"></i>
+                <font-awesome-icon
+                  icon="fas fa-calendar-check"
+                ></font-awesome-icon>
               </p>
             </div>
           </div>
@@ -269,7 +318,9 @@
               <p class="step-title fs-5 px-2 py-1 text-warning">STEP 4</p>
               <h3 class="step-content text-center">預約成功<br />開始課程</h3>
               <p class="step-icon p-3 m-0 fs-md-2 fs-5">
-                <i class="fa-solid fa-book-open-reader"></i>
+                <font-awesome-icon
+                  icon="fas fa-book-open-reader"
+                ></font-awesome-icon>
               </p>
             </div>
           </div>
@@ -286,7 +337,7 @@
           <div class="col-lg-4 col-12 my-5 quote-wrap">
             <div class="quote p-5">
               <p class="quote-icon text-warning">
-                <i class="fa-solid fa-quote-left"></i>
+                <font-awesome-icon icon="fas fa-quote-left"></font-awesome-icon>
               </p>
               <div class="comment-detail">
                 最近我參加了GuideClass上的英語課，我覺得這是一個非常有幫助的課程。老師是一位非常有經驗的外籍老師，他的教學方式非常有趣，讓我在課堂上保持著良好的學習動力。
@@ -298,7 +349,7 @@
           <div class="col-lg-4 col-12 my-5 quote-wrap">
             <div class="quote p-5">
               <p class="quote-icon text-warning">
-                <i class="fa-solid fa-quote-left"></i>
+                <font-awesome-icon icon="fas fa-quote-left"></font-awesome-icon>
               </p>
               <div class="comment-detail">
                 我在英語課上學到了許多有用的詞彙和句型。老師很有耐心地解釋新的知識，並且經常給我們練習的機會。我覺得這堂課很有趣，老師的教學方式也很吸引人。我特別喜歡老師給我們的口語練習，因為這讓我能夠熟練地表達自己的想法。雖然我還有許多要加強的地方，但我相信只要堅持不懈，就能在不久的將來達到更高的水平。
@@ -309,7 +360,7 @@
           <div class="col-lg-4 col-12 my-5 quote-wrap">
             <div class="quote p-5">
               <p class="quote-icon text-warning">
-                <i class="fa-solid fa-quote-left"></i>
+                <font-awesome-icon icon="fas fa-quote-left"></font-awesome-icon>
               </p>
               <div class="comment-detail">
                 我上了在 GuideClass
@@ -322,10 +373,5 @@
         </div>
       </div>
     </section>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+  </div>
+</template>

@@ -5,7 +5,7 @@
         <div class="container">
           <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-              <a class="navbar-brand fw-bold fs-4 brand-title"
+              <a class="navbar-brand fw-bold fs-4 brand-title" href="/"
                 ><span class="text-primary">Guide</span>Class</a
               >
               <button
@@ -23,13 +23,18 @@
                 <ul class="navbar-nav w-100">
                   <li class="nav-item me-auto">
                     <a class="nav-link text-dark" aria-current="page" href="#"
-                      ><i class="fa-solid fa-chalkboard-user text-warning"></i>
+                      ><font-awesome-icon
+                        icon="fas fa-chalkboard-user"
+                        class="text-warning"
+                      ></font-awesome-icon>
                       找老師</a
                     >
                   </li>
                   <div class="d-none d-lg-flex mx-3">
                     <p class="my-auto mx-2 text-secondary">
-                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <font-awesome-icon
+                        icon="fas fa-magnifying-glass"
+                      ></font-awesome-icon>
                     </p>
                     <div class="dropdown">
                       <input
