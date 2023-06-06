@@ -111,14 +111,14 @@ footer .icon-insta {
   border-radius: 1rem;
 }
 .reasons::before {
-  content: url("../img/dec1.png");
+  content: url("../images/dec1.png");
   position: absolute;
   top: -460px;
   left: -400px;
   z-index: 1;
 }
 .reasons::after {
-  content: url("../img/dec2.png");
+  content: url("../images/dec2.png");
   position: absolute;
   bottom: -480px;
   right: -225px;
