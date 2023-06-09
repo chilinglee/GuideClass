@@ -22,7 +22,10 @@
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav w-100">
                   <li class="nav-item me-auto">
-                    <a class="nav-link text-dark" aria-current="page" href="#"
+                    <a
+                      class="nav-link text-dark"
+                      aria-current="page"
+                      href="/teacher"
                       ><font-awesome-icon
                         icon="fas fa-chalkboard-user"
                         class="text-warning"
@@ -45,22 +48,31 @@
                         readonly="true"
                       />
                       <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">英語</a></li>
                         <li>
-                          <a class="dropdown-item" href="#">日語</a>
+                          <a class="dropdown-item" href="/teacher">英語</a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">韓語</a>
+                          <a class="dropdown-item" href="/teacher">日語</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="/teacher">韓語</a>
                         </li>
                       </ul>
                     </div>
                   </div>
                   <li class="nav-item mx-3">
-                    <a class="nav-link text-dark" href="#">會員中心</a>
+                    <a class="nav-link text-dark" href="/member/membership"
+                      >會員中心</a
+                    >
                   </li>
-                  <button class="btn btn-warning text-light mx-3" type="button">
-                    註冊/登入
-                  </button>
+                  <a href="/login">
+                    <button
+                      class="btn btn-warning text-light mx-3"
+                      type="button"
+                    >
+                      註冊/登入
+                    </button></a
+                  >
                 </ul>
               </div>
             </div>
