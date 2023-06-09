@@ -1,13 +1,13 @@
 export default defineNuxtConfig({
   build: { transpile: ['@fortawesome/vue-fontawesome'] },
   css: [
-    '~/node_modules/bootstrap/dist/css/bootstrap.min.css',
-    '~/node_modules/@fortawesome/fontawesome-svg-core/styles.css',
+    'bootstrap/dist/css/bootstrap.min.css',
+    '@fortawesome/fontawesome-svg-core/styles.css',
     '~/assets/style/main.css',
   ],
   plugins: [
     {
-      src: '~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+      src: '~/plugins/bootstrap.js',
       mode: 'client',
     },
     {
