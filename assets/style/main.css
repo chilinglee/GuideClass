@@ -214,11 +214,25 @@ footer .icon-insta {
 }
 .teacher {
   min-height: 80vh;
-  background-color: #def1ff;
+  background-color: #fff;
+}
+.teacher .sidebar .sidebar-wrap {
+  background-color: #fff;
+  border: 4px #c1daff solid;
+  padding: 1.5rem;
+}
+.teacher .sidebar h3 {
+  color: #006bce;
+  text-align: center;
+  font-weight: 700;
+}
+.teacher .sidebar li {
+  color: #006bce;
+  text-align: center;
 }
 .teacher .teacher-info {
-  border: 4px #ffffff solid;
-  background-color: #c1daff;
+  border: 4px #c1daff solid;
+  background-color: #def1ff;
 }
 .teacher .teacher-info img {
   width: 8rem;

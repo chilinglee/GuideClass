@@ -5,16 +5,31 @@
         <div class="row pt-5">
           <section class="col-3 sidebar">
             <div class="sidebar-wrap">
-              <h2 class="sidebar-title">尋找專業語言嚮導</h2>
+              <h3 class="sidebar-title underline">尋找專業語言嚮導</h3>
               <ul class="nav flex-column">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">英語教師</a>
+                  <a class="nav-link" href="#"
+                    ><font-awesome-icon
+                      icon="fas fa-clipboard-user"
+                    ></font-awesome-icon>
+                    英語教師 &emsp;</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">日語教師</a>
+                  <a class="nav-link" href="#"
+                    ><font-awesome-icon
+                      icon="fas fa-clipboard-user"
+                    ></font-awesome-icon>
+                    日語教師 &emsp;</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">韓語教師</a>
+                  <a class="nav-link" href="#"
+                    ><font-awesome-icon
+                      icon="fas fa-clipboard-user"
+                    ></font-awesome-icon>
+                    韓語教師 &emsp;</a
+                  >
                 </li>
               </ul>
             </div>
