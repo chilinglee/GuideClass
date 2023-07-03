@@ -1,8 +1,24 @@
+<script>
+export default {
+  data() {
+    return {
+      planPoint: 0,
+      planPrice: 0,
+    };
+  },
+  methods: {
+    setPlan(point, price) {
+      this.planPoint = point;
+      this.planPrice = price;
+    },
+  },
+};
+</script>
 <template>
   <div>
     <section class="priceplan header-space container-fluid">
       <div class="container">
-        <h3 class="text-primary fw-bolder fs-1 text-center my-5">點數方案</h3>
+        <h3 class="text-primary fw-bolder fs-1 text-center py-5">點數方案</h3>
         <div class="row">
           <div class="col-12 col-lg-4 package-max p-5 order-lg-1">
             <div class="card">
@@ -19,13 +35,15 @@
                 </p>
               </div>
               <div class="card-footer text-muted d-flex justify-content-center">
-                <input
-                  type="number"
-                  class="form-control w-25 me-1"
-                  placeholder="0"
-                  min="0"
-                />
-                <button class="btn btn-warning text-light">加入購物車</button>
+                <button
+                  class="btn btn-warning text-light"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#paymentModal"
+                  @click="setPlan(20000, 16000)"
+                >
+                  立即購買
+                </button>
               </div>
             </div>
           </div>
@@ -43,13 +61,15 @@
                 </p>
               </div>
               <div class="card-footer text-muted d-flex justify-content-center">
-                <input
-                  type="number"
-                  class="form-control w-25 me-1"
-                  placeholder="0"
-                  min="0"
-                />
-                <button class="btn btn-secondary">加入購物車</button>
+                <button
+                  class="btn btn-secondary"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#paymentModal"
+                  @click="setPlan(3000, 2700)"
+                >
+                  立即購買
+                </button>
               </div>
             </div>
           </div>
@@ -67,18 +87,55 @@
                 </p>
               </div>
               <div class="card-footer text-muted d-flex justify-content-center">
-                <input
-                  type="number"
-                  class="form-control w-25 me-1"
-                  placeholder="0"
-                  min="0"
-                />
-                <button class="btn btn-secondary">加入購物車</button>
+                <button
+                  class="btn btn-secondary"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#paymentModal"
+                  @click="setPlan(1, 1)"
+                >
+                  立即購買
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <!-- Modal -->
+    <div class="modal fade" id="paymentModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="paymentModalLabel">購買資訊</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            {{ planPoint }} {{ planPrice }}
+            <input
+              type="number"
+              class="form-control w-25 me-1"
+              placeholder="0"
+              min="0"
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
