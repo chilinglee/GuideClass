@@ -1,3 +1,23 @@
+<script setup>
+import moment from 'moment';
+const { $swal } = useNuxtApp();
+const router = useRouter();
+const histories = ref([]);
+
+import { storeToRefs } from 'pinia';
+import { useUserStore } from '../../store/user.store.js';
+const userStore = useUserStore();
+const { user } = storeToRefs(userStore);
+
+await useFetch('/api/order/histories', {
+  method: 'get',
+}).then((response) => {
+  const data = response.data.value;
+  const error = response.error.value;
+
+  histories.value = data;
+});
+</script>
 <template>
   <div>
     <div class="container-fluid header-space mypoint">
@@ -17,12 +37,15 @@
                 </p>
                 <p class="wording-point">
                   剩餘 <br />
-                  26,000點
+                  {{ new Intl.NumberFormat().format(user.point) }}點
+                </p>
+                <p class="text-center">
+                  <a class="btn btn-buy" href="/priceplan">立即購買點數</a>
                 </p>
               </div>
               <div>
                 <div class="table-responsive">
-                  <table class="table">
+                  <table class="table mypoint-table">
                     <thead>
                       <tr>
                         <th>日期</th>
@@ -32,29 +55,17 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>2022/12/28</td>
-                        <td>購課</td>
-                        <td>-1,000</td>
-                        <td>26,000</td>
-                      </tr>
-                      <tr>
-                        <td>2022/12/24</td>
-                        <td>購課</td>
-                        <td>-1,500</td>
-                        <td>27,000</td>
-                      </tr>
-                      <tr>
-                        <td>2022/12/21</td>
-                        <td>購課</td>
-                        <td>-1,500</td>
-                        <td>28,500</td>
-                      </tr>
-                      <tr>
-                        <td>2022/12/21</td>
-                        <td>購買點數</td>
-                        <td>30,000</td>
-                        <td>30,000</td>
+                      <tr v-for="item in histories" :key="item.created_on">
+                        <td>
+                          {{
+                            moment(
+                              new Date(item.created_on).toISOString()
+                            ).format('yyyy/MM/DD HH:mm')
+                          }}
+                        </td>
+                        <td>{{ item.type }}</td>
+                        <td>{{ item.point }}</td>
+                        <td>{{ item.subtotal }}</td>
                       </tr>
                     </tbody>
                   </table>

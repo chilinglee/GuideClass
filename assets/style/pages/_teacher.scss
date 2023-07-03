@@ -2,24 +2,8 @@
   min-height: 80vh;
   background-color: #fff;
 
-  .sidebar {
-    .sidebar-wrap {
-      background-color: #fff;
-      border: 4px $bg-dark-blue solid;
-      padding: 1.5rem;
-    }
-    h3 {
-      color: $primary;
-      text-align: center;
-      font-weight: 700;
-    }
-    li {
-      color: $primary;
-      text-align: center;
-    }
-  }
-
   .teacher-info {
+    margin: 1.5rem;
     border: 4px $bg-dark-blue solid;
     background-color: $bg-light-blue;
 
@@ -39,6 +23,18 @@
     .price {
       text-shadow: $white 3px 3px;
     }
+
+    .teacher-intro {
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+      overflow: hidden;
+      height: 10.5em;
+      line-height: 1.5em;
+    }
+  }
+
+  .teacher-pagination {
+    margin-top: 20px;
   }
 }
 

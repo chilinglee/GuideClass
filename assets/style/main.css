@@ -18,11 +18,12 @@ header .nav-search {
 }
 
 .header-space {
-  padding: 80px;
+  padding: 80px auto;
 }
 
 footer {
   background-color: #c1daff;
+  padding-top: 50px;
 }
 footer .icon-insta {
   color: #c13584;
@@ -216,21 +217,8 @@ footer .icon-insta {
   min-height: 80vh;
   background-color: #fff;
 }
-.teacher .sidebar .sidebar-wrap {
-  background-color: #fff;
-  border: 4px #c1daff solid;
-  padding: 1.5rem;
-}
-.teacher .sidebar h3 {
-  color: #006bce;
-  text-align: center;
-  font-weight: 700;
-}
-.teacher .sidebar li {
-  color: #006bce;
-  text-align: center;
-}
 .teacher .teacher-info {
+  margin: 1.5rem;
   border: 4px #c1daff solid;
   background-color: #def1ff;
 }
@@ -249,6 +237,16 @@ footer .icon-insta {
 }
 .teacher .teacher-info .price {
   text-shadow: #ffffff 3px 3px;
+}
+.teacher .teacher-info .teacher-intro {
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  height: 10.5em;
+  line-height: 1.5em;
+}
+.teacher .teacher-pagination {
+  margin-top: 20px;
 }
 
 @media screen and (max-width: 768px) {
@@ -271,7 +269,7 @@ footer .icon-insta {
 .teacher-detail .dollar {
   width: 100%;
   padding: 50%;
-  background-image: url("../img/dollar.png");
+  background-image: url("assets/images/dollar.png");
   background-position: center;
   background-size: cover;
   position: relative;
@@ -284,30 +282,36 @@ footer .icon-insta {
 .teacher-detail .schedule {
   overflow: auto;
 }
-.teacher-detail .schedule table td {
-  border: 1px solid #006bce;
+.teacher-detail .schedule .schedule-btn {
+  background-color: #c1daff;
+  color: #006bce;
+  border-radius: 16px;
+}
+.teacher-detail .schedule td {
+  border: 1px solid transparent;
+  background-color: transparent;
   text-align: center;
   min-width: 5rem;
-  vertical-align: middle;
+  vertical-align: top;
 }
-.teacher-detail .schedule table td i {
-  font-size: 3rem;
+.teacher-detail .schedule td div {
+  text-align: center;
+  padding: 0.5rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  border: #c1daff 3px solid;
   color: #006bce;
-  text-shadow: #ffaf44 3px 3px;
+  margin: 3px;
+  cursor: pointer;
+}
+.teacher-detail .schedule th p {
+  margin: 0;
 }
 .teacher-detail .schedule .day {
   background-color: #006bce;
   text-align: center;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 0.5rem 0.5rem 0 0;
-  border: #def1ff 1px solid;
-  color: #ffffff;
-}
-.teacher-detail .schedule .time {
-  text-align: center;
-  padding: 1rem;
-  background-color: #006bce;
-  border-radius: 0.5rem 0 0 0.5rem;
   border: #def1ff 1px solid;
   color: #ffffff;
 }
@@ -344,6 +348,7 @@ footer .icon-insta {
   border: #ced4da 2px solid;
   border-radius: 0.5rem;
   background-color: #ffffff;
+  margin-bottom: 80px;
 }
 
 .mypoint {
@@ -355,7 +360,6 @@ footer .icon-insta {
 }
 .mypoint .main .remians {
   color: #006bce;
-  text-shadow: #ffffff 4px 4px;
 }
 .mypoint .main .remians .icon-point {
   width: 100%;
@@ -367,7 +371,21 @@ footer .icon-insta {
   text-align: center;
   font-size: 1.5rem;
 }
+.mypoint .main .remians .btn-buy {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #006bce;
+  animation: swinkle 4s linear infinite;
+}
+@keyframes swinkle {
+  0%, 50% {
+    box-shadow: none;
+  }
+  25%, 75% {
+    box-shadow: 0 0 40px rgb(180, 180, 180);
+  }
+}
 .mypoint .main table {
+  min-width: 400px;
   text-align: center;
   border: #ffffff 3px solid;
 }
@@ -382,4 +400,7 @@ footer .icon-insta {
   color: #006bce;
   font-size: 700;
   margin-bottom: 2rem;
+}
+.myschedule .myschedule-table {
+  min-width: 800px;
 }/*# sourceMappingURL=main.css.map */

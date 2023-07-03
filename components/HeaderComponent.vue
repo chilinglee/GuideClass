@@ -1,3 +1,17 @@
+<script setup>
+import { storeToRefs } from 'pinia';
+import { useUserStore } from '../store/user.store.js';
+const userStore = useUserStore();
+const { user } = storeToRefs(userStore);
+userStore.fetchUser();
+
+const logout = async () => {
+  userStore.logout();
+  const authCookie = useCookie('access_token');
+  authCookie.value = null;
+  await navigator('/');
+};
+</script>
 <template>
   <div>
     <header>
@@ -49,23 +63,53 @@
                       />
                       <ul class="dropdown-menu">
                         <li>
-                          <a class="dropdown-item" href="/teacher">英語</a>
+                          <a class="dropdown-item" href="/teacher?lang=eng"
+                            >英語</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="/teacher">日語</a>
+                          <a class="dropdown-item" href="/teacher?lang=jap"
+                            >日語</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="/teacher">韓語</a>
+                          <a class="dropdown-item" href="/teacher?lang=kor"
+                            >韓語</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="/teacher?lang=spa"
+                            >西班牙語</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="/teacher?lang=dut"
+                            >德語</a
+                          >
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <li class="nav-item mx-3">
-                    <a class="nav-link text-dark" href="/member/membership"
-                      >會員中心</a
+                  <li class="nav-item mx-3" v-if="user.isLogin">
+                    <a class="nav-link text-dark" href="/member/mypoint"
+                      ><font-awesome-icon
+                        icon="fas fa-comments-dollar"
+                        class="text-primary"
+                      ></font-awesome-icon>
+                      {{ new Intl.NumberFormat().format(user?.point ?? 0) }}
+                      點</a
                     >
                   </li>
-                  <a href="/login">
+                  <li class="nav-item mx-3" v-if="user?.isLogin">
+                    <a class="nav-link text-dark" href="/member/membership"
+                      ><font-awesome-icon
+                        icon="fas fa-circle-user"
+                        class="text-primary"
+                      ></font-awesome-icon>
+                      會員中心</a
+                    >
+                  </li>
+                  <a href="/login" v-if="!user?.isLogin">
                     <button
                       class="btn btn-warning text-light mx-3"
                       type="button"
@@ -73,6 +117,15 @@
                       註冊/登入
                     </button></a
                   >
+                  <li class="nav-item mx-3" v-if="user?.isLogin">
+                    <a class="nav-link text-dark" @click="logout" href=""
+                      ><font-awesome-icon
+                        icon="fas fa-arrow-right-from-bracket"
+                        class="text-warning"
+                      ></font-awesome-icon>
+                      登出</a
+                    >
+                  </li>
                 </ul>
               </div>
             </div>

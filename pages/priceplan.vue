@@ -1,8 +1,28 @@
+<script setup>
+const { $bootstrap } = useNuxtApp();
+const planPoint = ref(0);
+const planPrice = ref(0);
+let modal = '';
+
+const showModal = (point, price) => {
+  planPoint.value = point;
+  planPrice.value = price;
+  modal.show();
+};
+
+const hideModal = () => {
+  modal.hide();
+};
+
+onMounted(() => {
+  modal = new $bootstrap.Modal(paymentModal);
+});
+</script>
 <template>
   <div>
     <section class="priceplan header-space container-fluid">
       <div class="container">
-        <h3 class="text-primary fw-bolder fs-1 text-center my-5">點數方案</h3>
+        <h3 class="text-primary fw-bolder fs-1 text-center py-5">點數方案</h3>
         <div class="row">
           <div class="col-12 col-lg-4 package-max p-5 order-lg-1">
             <div class="card">
@@ -19,13 +39,13 @@
                 </p>
               </div>
               <div class="card-footer text-muted d-flex justify-content-center">
-                <input
-                  type="number"
-                  class="form-control w-25 me-1"
-                  placeholder="0"
-                  min="0"
-                />
-                <button class="btn btn-warning text-light">加入購物車</button>
+                <button
+                  class="btn btn-warning text-light"
+                  type="button"
+                  @click="showModal(20000, 16000)"
+                >
+                  立即購買
+                </button>
               </div>
             </div>
           </div>
@@ -43,13 +63,13 @@
                 </p>
               </div>
               <div class="card-footer text-muted d-flex justify-content-center">
-                <input
-                  type="number"
-                  class="form-control w-25 me-1"
-                  placeholder="0"
-                  min="0"
-                />
-                <button class="btn btn-secondary">加入購物車</button>
+                <button
+                  class="btn btn-secondary"
+                  type="button"
+                  @click="showModal(3000, 2700)"
+                >
+                  立即購買
+                </button>
               </div>
             </div>
           </div>
@@ -67,13 +87,13 @@
                 </p>
               </div>
               <div class="card-footer text-muted d-flex justify-content-center">
-                <input
-                  type="number"
-                  class="form-control w-25 me-1"
-                  placeholder="0"
-                  min="0"
-                />
-                <button class="btn btn-secondary">加入購物車</button>
+                <button
+                  class="btn btn-secondary"
+                  type="button"
+                  @click="showModal(1, 1)"
+                >
+                  立即購買
+                </button>
               </div>
             </div>
           </div>
@@ -81,4 +101,9 @@
       </div>
     </section>
   </div>
+  <PaymentModalComponent
+    :plan-point="planPoint"
+    :plan-price="planPrice"
+    @hide-modal="hideModal"
+  ></PaymentModalComponent>
 </template>

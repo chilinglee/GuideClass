@@ -16,6 +16,12 @@ import {
   faArrowDown,
   faCircleCheck,
   faMagnifyingGlass,
+  faChevronLeft,
+  faChevronRight,
+  faFireFlameCurved,
+  faCircleUser,
+  faCommentsDollar,
+  faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -35,7 +41,13 @@ library.add(
   faClipboardUser,
   faArrowDown,
   faCircleCheck,
-  faMagnifyingGlass
+  faMagnifyingGlass,
+  faChevronLeft,
+  faChevronRight,
+  faFireFlameCurved,
+  faCircleUser,
+  faCommentsDollar,
+  faArrowRightFromBracket
 );
 
 // This is important, we are going to let Nuxt worry about the CSS
