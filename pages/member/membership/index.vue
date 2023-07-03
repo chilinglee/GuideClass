@@ -1,3 +1,8 @@
+<script setup>
+const { data } = useFetch('/api/users/membership', {
+  method: 'get',
+});
+</script>
 <template>
   <div>
     <div class="container-fluid header-space membership">

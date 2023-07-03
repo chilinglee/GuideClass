@@ -3,10 +3,11 @@ import { UserModel } from '../models/user.model';
 const config = useRuntimeConfig();
 
 export default defineEventHandler(async (event) => {
-  const auth = getRequestHeader(event, 'Authorization');
-  let token = '';
-  if (auth && auth.startsWith('Bearer')) {
-    token = auth.split(' ')[1];
+  //const auth = getRequestHeader(event, 'Authorization');
+  let token = getCookie(event, 'access_token');
+  //let token = '';
+  if (token) {
+    //token = auth.split(' ')[1];
     let id = '';
     await jwt.verify(token, config.JWT_SECRET, (err, payload) => {
       if (err) {

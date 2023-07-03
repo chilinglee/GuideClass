@@ -1,3 +1,13 @@
+<script setup>
+const { data } = await useFetch('/api/users/findMember', {
+  method: 'get',
+});
+
+const logout = async () => {
+  const authCookie = useCookie('access_token');
+  authCookie.value = null;
+};
+</script>
 <template>
   <div>
     <header>
@@ -76,7 +86,16 @@
                       </ul>
                     </div>
                   </div>
-                  <li class="nav-item mx-3">
+                  <li class="nav-item mx-3" v-if="data.isLogin">
+                    <a class="nav-link text-dark" href="/member/mypoint"
+                      ><font-awesome-icon
+                        icon="fas fa-comments-dollar"
+                        class="text-primary"
+                      ></font-awesome-icon>
+                      {{ new Intl.NumberFormat().format(data.point) }} 點</a
+                    >
+                  </li>
+                  <li class="nav-item mx-3" v-if="data.isLogin">
                     <a class="nav-link text-dark" href="/member/membership"
                       ><font-awesome-icon
                         icon="fas fa-circle-user"
@@ -85,7 +104,7 @@
                       會員中心</a
                     >
                   </li>
-                  <a href="/login">
+                  <a href="/login" v-if="!data.isLogin">
                     <button
                       class="btn btn-warning text-light mx-3"
                       type="button"
@@ -93,6 +112,15 @@
                       註冊/登入
                     </button></a
                   >
+                  <li class="nav-item mx-3" v-if="data.isLogin">
+                    <a class="nav-link text-dark" @click="logout" href=""
+                      ><font-awesome-icon
+                        icon="fas fa-arrow-right-from-bracket"
+                        class="text-warning"
+                      ></font-awesome-icon>
+                      登出</a
+                    >
+                  </li>
                 </ul>
               </div>
             </div>

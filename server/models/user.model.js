@@ -20,6 +20,9 @@ UserModel.init(
       type: DataTypes.STRING(200),
       allowNull: false,
     },
+    point: {
+      type: DataTypes.INTEGER,
+    },
   },
   {
     sequelize,

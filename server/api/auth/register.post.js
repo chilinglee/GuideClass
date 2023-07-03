@@ -2,6 +2,7 @@ import { UserModel } from '../../models/user.model';
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import validator from 'validator';
+import moment from 'moment';
 const config = useRuntimeConfig();
 
 export default defineEventHandler(async (event) => {
@@ -53,6 +54,13 @@ export default defineEventHandler(async (event) => {
     config.JWT_SECRET,
     { expiresIn: '7d' }
   );
+
+  setCookie(event, 'access_token', token, {
+    maxAge: 60 * 60 * 24 * 7,
+    //httpOnly: true,
+    expires: moment().add(7, 'd').toDate(),
+    secure: process.env.NODE_ENV === 'production',
+  });
 
   return {
     name: user.name,

@@ -1,8 +1,6 @@
 import { UserModel } from '../../models/user.model';
 import bcryptjs from 'bcryptjs';
 import validator from 'validator';
-import jwt from 'jsonwebtoken';
-const config = useRuntimeConfig();
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
