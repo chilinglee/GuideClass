@@ -10,6 +10,15 @@ const resetCount = () => {
 };
 
 const buy = async () => {
+  await useFetch('/api/auth/checkAuth', {
+    method: 'get',
+  }).then(async (response) => {
+    const data = response.data.value;
+    if (!data || !data.isLogin) {
+      await navigateTo('/login');
+    }
+  });
+
   await useFetch('/api/order', {
     method: 'post',
     body: {
@@ -24,11 +33,15 @@ const buy = async () => {
     const data = response.data.value;
     const error = response.error.value;
     if (error) {
-      $swal.fire({
-        title: error.data.message,
-        icon: 'error',
-        confirmButtonText: '確認',
-      });
+      $swal
+        .fire({
+          title: error.data.message,
+          icon: 'error',
+          confirmButtonText: '確認',
+        })
+        .then((res) => {
+          location.reload();
+        });
     } else {
       $swal
         .fire({
