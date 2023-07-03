@@ -21,7 +21,11 @@ OrderModel.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    total: {
+    total_price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    total_point: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },

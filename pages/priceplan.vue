@@ -1,18 +1,22 @@
-<script>
-export default {
-  data() {
-    return {
-      planPoint: 0,
-      planPrice: 0,
-    };
-  },
-  methods: {
-    setPlan(point, price) {
-      this.planPoint = point;
-      this.planPrice = price;
-    },
-  },
+<script setup>
+const { $bootstrap } = useNuxtApp();
+const planPoint = ref(0);
+const planPrice = ref(0);
+let modal = '';
+
+const showModal = (point, price) => {
+  planPoint.value = point;
+  planPrice.value = price;
+  modal.show();
 };
+
+const hideModal = () => {
+  modal.hide();
+};
+
+onMounted(() => {
+  modal = new $bootstrap.Modal(paymentModal);
+});
 </script>
 <template>
   <div>
@@ -38,9 +42,7 @@ export default {
                 <button
                   class="btn btn-warning text-light"
                   type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#paymentModal"
-                  @click="setPlan(20000, 16000)"
+                  @click="showModal(20000, 16000)"
                 >
                   立即購買
                 </button>
@@ -64,9 +66,7 @@ export default {
                 <button
                   class="btn btn-secondary"
                   type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#paymentModal"
-                  @click="setPlan(3000, 2700)"
+                  @click="showModal(3000, 2700)"
                 >
                   立即購買
                 </button>
@@ -90,9 +90,7 @@ export default {
                 <button
                   class="btn btn-secondary"
                   type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#paymentModal"
-                  @click="setPlan(1, 1)"
+                  @click="showModal(1, 1)"
                 >
                   立即購買
                 </button>
@@ -102,40 +100,10 @@ export default {
         </div>
       </div>
     </section>
-    <!-- Modal -->
-    <div class="modal fade" id="paymentModal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="paymentModalLabel">購買資訊</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            {{ planPoint }} {{ planPrice }}
-            <input
-              type="number"
-              class="form-control w-25 me-1"
-              placeholder="0"
-              min="0"
-            />
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
+  <PaymentModalComponent
+    :plan-point="planPoint"
+    :plan-price="planPrice"
+    @hide-modal="hideModal"
+  ></PaymentModalComponent>
 </template>

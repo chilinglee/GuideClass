@@ -23,7 +23,7 @@ header .nav-search {
 
 footer {
   background-color: #c1daff;
-  margin-top: 50px;
+  padding-top: 50px;
 }
 footer .icon-insta {
   color: #c13584;
@@ -359,7 +359,6 @@ footer .icon-insta {
 }
 .mypoint .main .remians {
   color: #006bce;
-  text-shadow: #ffffff 4px 4px;
 }
 .mypoint .main .remians .icon-point {
   width: 100%;
@@ -370,6 +369,19 @@ footer .icon-insta {
   width: 100%;
   text-align: center;
   font-size: 1.5rem;
+}
+.mypoint .main .remians .btn-buy {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #006bce;
+  animation: swinkle 4s linear infinite;
+}
+@keyframes swinkle {
+  0%, 50% {
+    box-shadow: none;
+  }
+  25%, 75% {
+    box-shadow: 0 0 40px rgb(180, 180, 180);
+  }
 }
 .mypoint .main table {
   text-align: center;
