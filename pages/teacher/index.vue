@@ -1,3 +1,21 @@
+<script setup>
+const route = useRoute();
+const page = ref(1);
+const sort = ref('');
+const lang = ref(route.query.lang ?? '');
+const { data } = await useFetch('/api/teachers', {
+  methods: 'get',
+  query: {
+    page,
+    sort,
+    lang,
+  },
+  watch: [page, sort, lang],
+  onResponse({ request, response, options }) {
+    page.value = response._data.page;
+  },
+});
+</script>
 <template>
   <div>
     <section class="teacher">
@@ -11,8 +29,9 @@
                     name="teacher-lang"
                     id="teacher-lang"
                     class="form-select"
+                    v-model="lang"
                   >
-                    <option selected>語言</option>
+                    <option value="">語言</option>
                     <option value="eng">英語</option>
                     <option value="jap">日語</option>
                     <option value="kor">韓語</option>
@@ -25,78 +44,105 @@
                     name="teacher-sort"
                     id="teacher-sprt"
                     class="form-select"
+                    v-model="sort"
                   >
-                    <option selected>排序</option>
+                    <option value="">排序</option>
                     <option value="sort-hot">人氣度</option>
-                    <option value="sort-new">新加入</option>
-                    <option value="sort-senior">資深</option>
                     <option value="sort-price-low">價格低</option>
                     <option value="sort-price-high">價格高</option>
+                    <option value="sort-new">新加入</option>
+                    <option value="sort-senior">資深</option>
                   </select>
                 </div>
               </div>
             </div>
-            <div class="teacher-info">
+            <div
+              class="teacher-info"
+              v-for="item in data.items"
+              :key="item.teacher_id"
+            >
               <div class="row p-5">
                 <div
                   class="col-md-3 col-12 d-flex flex-column justify-content-center align-items-center mb-3"
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-                    alt="Tammy"
+                    :src="item.teacher_photo"
+                    :alt="item.name"
                     class="mx-aut"
                   />
                   <p
                     class="fs-4 mb-3 price text-secondary fw-bolder text-center"
                   >
-                    1000 點 <span class="fs-6">/ 50min</span>
+                    {{ item.price }} 點
+                    <span class="fs-6">/ {{ item.price_minutes }} min</span>
                   </p>
-                  <button class="btn btn-warning text-light mb-3 w-100">
+                  <a
+                    class="btn btn-warning text-light mb-3 w-100"
+                    :href="`/teacherDetails/${item.teacher_id}#schedule`"
+                  >
                     <font-awesome-icon
                       icon="fas fa-calendar-day"
                     ></font-awesome-icon>
                     立即預約
-                  </button>
-                  <button class="btn btn-secondary text-light w-100">
+                  </a>
+                  <a
+                    class="btn btn-secondary text-light w-100"
+                    :href="`/teacherDetails/${item.teacher_id}`"
+                  >
                     <font-awesome-icon
                       icon="fas fa-clipboard-user"
                     ></font-awesome-icon>
                     瞭解老師
-                  </button>
+                  </a>
                 </div>
                 <div
                   class="col-md-9 col-12 d-flex flex-column justify-content-evenly"
                 >
                   <p class="teacher-title mb-0 fs-3 fw-bolder text-primary">
-                    Tammy | 職場英文讓您無往不利
+                    {{ item.name }} | {{ item.title }}
                   </p>
                   <p class="text-secondary text-decoration-underline fs-6">
-                    <span>口説</span> | <span>商業英語</span>
+                    <span
+                      class="badge rounded-pill text-bg-secondary"
+                      v-for="t in item.tags"
+                      :key="t"
+                      >{{ t }}</span
+                    >
                   </p>
-                  <p class="fs-6 d-none d-md-block">
-                    我是一名英文家教，曾在加拿大溫哥華大學留學，主修外語教學。在我的教學中，我主要教授多益英文，幫助學生聼懂不同口音的英語，復習多益常考單詞，增加閲讀測驗能力，以期在多益考試中獲得高分。我的教學方法靈活多變，可以適應不同學生的需要，幫助他們在學習英文的過程中有效地提升能力。我相信，透過不斷的努力和決心，每一位學生都能在英文學習上取得成功.
+                  <p class="fs-6 d-none d-md-block teacher-intro">
+                    {{ item.introduction }}
                   </p>
                 </div>
               </div>
             </div>
             <div class="teacher-pagination text-center">
-              <div class="btn-group" role="group">
-                <button type="button" class="btn btn-outline-primary">
-                  <font-awesome-icon
-                    icon="fas fa-chevron-left"
-                  ></font-awesome-icon>
-                </button>
-                <button type="button" class="btn btn-outline-primary active">
-                  1
-                </button>
-                <button type="button" class="btn btn-outline-primary">2</button>
-                <button type="button" class="btn btn-outline-primary">3</button>
-                <button type="button" class="btn btn-outline-primary">
-                  <font-awesome-icon
-                    icon="fas fa-chevron-right"
-                  ></font-awesome-icon>
-                </button>
-              </div>
+              <nav>
+                <ul class="pagination justify-content-center">
+                  <li class="page-item" :class="{ disabled: page == 1 }">
+                    <a class="page-link" @click="if (page > 1) page--;">
+                      <span>&laquo;</span>
+                    </a>
+                  </li>
+                  <li
+                    class="page-item"
+                    v-for="i in data.totalPages"
+                    :class="{ active: page == i }"
+                  >
+                    <a class="page-link" @click="page = i">{{ i }}</a>
+                  </li>
+                  <li
+                    class="page-item"
+                    :class="{ disabled: page == data.totalPages }"
+                  >
+                    <a
+                      class="page-link"
+                      @click="if (page < data.totalPages) page++;"
+                    >
+                      <span>&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>

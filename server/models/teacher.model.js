@@ -33,6 +33,12 @@ TeacherModel.init(
     class_time: {
       type: DataTypes.JSON,
     },
+    teacher_photo: {
+      type: DataTypes.STRING(200),
+    },
+    reservation_count: {
+      type: DataTypes.INTEGER,
+    },
   },
 
   {

@@ -26,12 +26,20 @@
                 readonly="true"
               />
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">英語</a></li>
                 <li>
-                  <a class="dropdown-item" href="#">日語</a>
+                  <a class="dropdown-item" href="/teacher?lang=eng">英語</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">韓語</a>
+                  <a class="dropdown-item" href="/teacher?lang=jap">日語</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/teacher?lang=kor">韓語</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/teacher?lang=spa">西班牙語</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/teacher?lang=dut">德語</a>
                 </li>
               </ul>
             </div>

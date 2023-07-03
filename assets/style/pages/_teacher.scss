@@ -3,6 +3,7 @@
   background-color: #fff;
 
   .teacher-info {
+    margin: 1.5rem;
     border: 4px $bg-dark-blue solid;
     background-color: $bg-light-blue;
 
@@ -21,6 +22,14 @@
 
     .price {
       text-shadow: $white 3px 3px;
+    }
+
+    .teacher-intro {
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+      overflow: hidden;
+      height: 10.5em;
+      line-height: 1.5em;
     }
   }
 

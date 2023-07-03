@@ -49,26 +49,40 @@
                       />
                       <ul class="dropdown-menu">
                         <li>
-                          <a class="dropdown-item" href="/teacher">英語</a>
+                          <a class="dropdown-item" href="/teacher?lang=eng"
+                            >英語</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="/teacher">日語</a>
+                          <a class="dropdown-item" href="/teacher?lang=jap"
+                            >日語</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="/teacher">韓語</a>
+                          <a class="dropdown-item" href="/teacher?lang=kor"
+                            >韓語</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="/teacher">西班牙語</a>
+                          <a class="dropdown-item" href="/teacher?lang=spa"
+                            >西班牙語</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="/teacher">德語</a>
+                          <a class="dropdown-item" href="/teacher?lang=dut"
+                            >德語</a
+                          >
                         </li>
                       </ul>
                     </div>
                   </div>
                   <li class="nav-item mx-3">
                     <a class="nav-link text-dark" href="/member/membership"
-                      >會員中心</a
+                      ><font-awesome-icon
+                        icon="fas fa-circle-user"
+                        class="text-primary"
+                      ></font-awesome-icon>
+                      會員中心</a
                     >
                   </li>
                   <a href="/login">

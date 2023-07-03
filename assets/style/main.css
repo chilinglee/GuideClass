@@ -218,6 +218,7 @@ footer .icon-insta {
   background-color: #fff;
 }
 .teacher .teacher-info {
+  margin: 1.5rem;
   border: 4px #c1daff solid;
   background-color: #def1ff;
 }
@@ -236,6 +237,13 @@ footer .icon-insta {
 }
 .teacher .teacher-info .price {
   text-shadow: #ffffff 3px 3px;
+}
+.teacher .teacher-info .teacher-intro {
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  height: 10.5em;
+  line-height: 1.5em;
 }
 .teacher .teacher-pagination {
   margin-top: 20px;
