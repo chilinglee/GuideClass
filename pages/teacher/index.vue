@@ -1,40 +1,41 @@
 <template>
   <div>
-    <div class="container-fluid header-space teacher">
-      <div class="container">
-        <div class="row pt-5">
-          <section class="col-3 sidebar">
-            <div class="sidebar-wrap">
-              <h3 class="sidebar-title underline">尋找專業語言嚮導</h3>
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link" href="#"
-                    ><font-awesome-icon
-                      icon="fas fa-clipboard-user"
-                    ></font-awesome-icon>
-                    英語教師 &emsp;</a
+    <section class="teacher">
+      <div class="container header-space">
+        <div class="row pt-5 justify-content-center">
+          <div class="col-lg-9 col-12">
+            <div class="teacher-nav py-3 w-50 ms-auto me-0">
+              <div class="row">
+                <div class="col">
+                  <select
+                    name="teacher-lang"
+                    id="teacher-lang"
+                    class="form-select"
                   >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"
-                    ><font-awesome-icon
-                      icon="fas fa-clipboard-user"
-                    ></font-awesome-icon>
-                    日語教師 &emsp;</a
+                    <option selected>語言</option>
+                    <option value="eng">英語</option>
+                    <option value="jap">日語</option>
+                    <option value="kor">韓語</option>
+                    <option value="spa">西班牙語</option>
+                    <option value="dut">德語</option>
+                  </select>
+                </div>
+                <div class="col">
+                  <select
+                    name="teacher-sort"
+                    id="teacher-sprt"
+                    class="form-select"
                   >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"
-                    ><font-awesome-icon
-                      icon="fas fa-clipboard-user"
-                    ></font-awesome-icon>
-                    韓語教師 &emsp;</a
-                  >
-                </li>
-              </ul>
+                    <option selected>排序</option>
+                    <option value="sort-hot">人氣度</option>
+                    <option value="sort-new">新加入</option>
+                    <option value="sort-senior">資深</option>
+                    <option value="sort-price-low">價格低</option>
+                    <option value="sort-price-hight">價格高</option>
+                  </select>
+                </div>
+              </div>
             </div>
-          </section>
-          <section class="main col-lg-9 col-12">
             <div class="teacher-info">
               <div class="row p-5">
                 <div
@@ -78,9 +79,9 @@
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>

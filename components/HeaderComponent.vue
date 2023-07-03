@@ -57,6 +57,12 @@
                         <li>
                           <a class="dropdown-item" href="/teacher">韓語</a>
                         </li>
+                        <li>
+                          <a class="dropdown-item" href="/teacher">西班牙語</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="/teacher">德語</a>
+                        </li>
                       </ul>
                     </div>
                   </div>
