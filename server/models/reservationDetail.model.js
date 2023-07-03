@@ -1,37 +1,45 @@
 import { DataTypes, Model } from 'sequelize';
 
-export class ReservationModel extends Model {}
+export class ReservationDetailModel extends Model {}
 
-ReservationModel.init(
+ReservationDetailModel.init(
   {
     reservation_id: {
       type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
     user_id: {
       type: DataTypes.STRING(36),
-      allowNull: false,
     },
     teacher_id: {
       type: DataTypes.STRING(36),
-      allowNull: false,
     },
     reservation_date: {
       type: DataTypes.DATE,
-      allowNull: false,
     },
     reservation_time: {
       type: DataTypes.TIME,
-      allowNull: false,
     },
     class_fee: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+    },
+    created_on: {
+      type: DataTypes.DATE,
     },
     is_deleted: {
       type: DataTypes.ENUM('0', '1'),
-      defaultValue: '0',
+    },
+    t_id: {
+      type: DataTypes.STRING(36),
+    },
+    teacher_name: {
+      type: DataTypes.STRING(20),
+    },
+    teacher_title: {
+      type: DataTypes.STRING(20),
+    },
+    teacher_photo: {
+      type: DataTypes.STRING(200),
     },
     full_reservation_time: {
       type: DataTypes.VIRTUAL,
@@ -68,10 +76,8 @@ ReservationModel.init(
   },
   {
     sequelize,
-    modelName: 'Reservation',
-    tableName: 'reservations',
-    timestamps: true,
-    createdAt: 'created_on',
-    updatedAt: false,
+    modelName: 'ReservationDetail',
+    tableName: 'reservationDetail',
+    timestamps: false,
   }
 );
