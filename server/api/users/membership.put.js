@@ -7,14 +7,14 @@ export default defineEventHandler(async (event) => {
   const { name, email, password, confirmPassword } = body;
   const { user } = event.context;
   if (!user) {
-    throw createError({
+    return createError({
       statusCode: 401,
       message: '請先登入',
     });
   }
   // 內容不可為空
   if (!name || !email || !password || !confirmPassword) {
-    throw createError({
+    return createError({
       statusCode: 400,
       message: '更新失敗，欄位未填寫正確！',
     });
@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
 
   // 是否為 Email
   if (!validator.isEmail(email)) {
-    throw createError({
+    return createError({
       statusCode: 400,
       message: '更新失敗，Email 格式不正確 !',
     });
@@ -30,7 +30,7 @@ export default defineEventHandler(async (event) => {
 
   // 密碼正確
   if (password !== confirmPassword) {
-    throw createError({
+    return createError({
       statusCode: 400,
       message: '更新失敗，密碼不一致！',
     });
@@ -38,7 +38,7 @@ export default defineEventHandler(async (event) => {
 
   // 密碼强度
   if (!validator.isStrongPassword(password, { minSymbols: 0 })) {
-    throw createError({
+    return createError({
       statusCode: 400,
       message: '更新失敗，密碼需大於 8 碼，並包含數字、英文字母大小寫!',
     });

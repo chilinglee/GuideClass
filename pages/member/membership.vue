@@ -1,7 +1,58 @@
 <script setup>
-const { data } = useFetch('/api/users/membership', {
-  method: 'get',
-});
+const { $swal } = useNuxtApp();
+const name = ref('');
+const email = ref('');
+const password = ref('');
+const confirmPassword = ref('');
+
+const getUser = async () => {
+  await useFetch('/api/users/membership', {
+    method: 'get',
+  }).then((response) => {
+    const data = response.data.value;
+    name.value = data.name;
+    email.value = data.email;
+  });
+};
+
+const updateMemberInfo = async () => {
+  await useFetch(`/api/users/membership`, {
+    method: 'put',
+    body: {
+      name: name.value,
+      email: email.value,
+      password: password.value,
+      confirmPassword: confirmPassword.value,
+    },
+  }).then((res) => {
+    const data = res.data.value;
+    const error = res.error.value;
+    console.log(res);
+    if (error) {
+      $swal.fire({
+        title: '更新失敗，請稍後再試',
+        text: error,
+        confirmButtonText: '確認',
+      });
+    } else {
+      getUser();
+      $swal
+        .mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        })
+        .fire({
+          icon: 'success',
+          title: '更新成功',
+        });
+    }
+  });
+};
+
+getUser();
 </script>
 <template>
   <div>
@@ -21,8 +72,9 @@ const { data } = useFetch('/api/users/membership', {
                     <input
                       type="text"
                       class="form-control"
-                      id=""
-                      aria-describedby=""
+                      :value="name"
+                      id="name"
+                      @input="(event) => (name = event.target.value)"
                     />
                   </div>
                   <div class="mb-3">
@@ -30,20 +82,37 @@ const { data } = useFetch('/api/users/membership', {
                     <input
                       type="email"
                       class="form-control"
-                      id=""
-                      aria-describedby="emailHelp"
+                      :value="email"
+                      id="email"
+                      @input="(event) => (email = event.target.value)"
                     />
                   </div>
                   <div class="mb-3">
                     <label for="" class="form-label">修改密碼</label>
-                    <input type="password" class="form-control" id="" />
+                    <input
+                      type="password"
+                      class="form-control"
+                      :value="password"
+                      id="password"
+                      @input="(event) => (password = event.target.value)"
+                    />
                   </div>
                   <div class="mb-3">
                     <label for="" class="form-label">確認密碼</label>
-                    <input type="password" class="form-control" id="" />
+                    <input
+                      type="password"
+                      class="form-control"
+                      :value="confirmPassword"
+                      id="confirmPassword"
+                      @input="(event) => (confirmPassword = event.target.value)"
+                    />
                   </div>
                   <div class="w-100 text-center">
-                    <button type="submit" class="btn btn-success text-light">
+                    <button
+                      type="button"
+                      class="btn btn-success text-light"
+                      @click="updateMemberInfo()"
+                    >
                       更新資料
                     </button>
                   </div>
