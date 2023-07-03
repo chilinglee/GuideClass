@@ -15,6 +15,7 @@ export default defineNuxtConfig({
       src: '~/plugins/fontawesome.js',
     },
   ],
+  modules: ['@pinia/nuxt'],
   components: true,
   compilerOptions: {
     isCustomElement: (tag) => {
