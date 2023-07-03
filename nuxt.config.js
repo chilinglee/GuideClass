@@ -25,5 +25,6 @@ export default defineNuxtConfig({
     DATABASE_HOST: process.env.DATABASE_HOST,
     DATABASE_ACCOUNT: process.env.DATABASE_ACCOUNT,
     DATABASE_PASSWORD: process.env.DATABASE_PASSWORD,
+    JWT_SECRET: process.env.JWT_SECRET,
   },
 });
