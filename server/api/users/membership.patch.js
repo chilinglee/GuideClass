@@ -7,7 +7,10 @@ export default defineEventHandler(async (event) => {
   const { name, email, password, confirmPassword } = body;
   const { user } = event.context;
   if (!user) {
-    return sendRedirect(event, '/login', 302);
+    throw createError({
+      statusCode: 401,
+      message: '請先登入',
+    });
   }
   // 內容不可為空
   if (!name || !email || !password || !confirmPassword) {

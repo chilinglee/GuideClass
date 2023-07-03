@@ -20,9 +20,9 @@ await useFetch(`/api/teachers/${teacher_id}`, {
                 :alt="teacher.name"
                 class="mx-auto w-100 mb-3"
               />
-              <button class="btn btn-warning w-100 text-light">
+              <!-- <button class="btn btn-warning w-100 text-light">
                 <font-awesome-icon icon="far fa-heart"></font-awesome-icon> 收藏
-              </button>
+              </button> -->
             </div>
             <div class="col-12 col-md-8 col-xl-6">
               <img
@@ -61,11 +61,11 @@ await useFetch(`/api/teachers/${teacher_id}`, {
                 ></font-awesome-icon>
                 立即預約
               </a>
-              <button
+              <!-- <button
                 class="btn btn-warning w-100 my-2 text-light d-block d-xl-none"
               >
                 <font-awesome-icon icon="far fa-heart"></font-awesome-icon> 收藏
-              </button>
+              </button> -->
             </div>
           </div>
           <hr class="w-75 mx-auto" />

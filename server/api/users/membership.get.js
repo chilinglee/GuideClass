@@ -1,7 +1,10 @@
 export default defineEventHandler(async (event) => {
   const { user } = event.context;
   if (!user) {
-    return sendRedirect(event, '/login', 302);
+    throw createError({
+      statusCode: 401,
+      message: '請先登入',
+    });
   }
   return {
     name: user.name,

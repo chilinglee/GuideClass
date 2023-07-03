@@ -1,5 +1,5 @@
 export default defineEventHandler(async (event) => {
-  const { user } = event.context;
+  const { user = null } = event.context;
   const isLogin = user ? true : false;
   return {
     isLogin,

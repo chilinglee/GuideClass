@@ -7,7 +7,10 @@ export default defineEventHandler(async (event) => {
     const { plan, count, totalPrice, totalPoint } = await readBody(event);
 
     if (!user) {
-      return sendRedirect(event, '/login', 302);
+      throw createError({
+        statusCode: 401,
+        message: '請先登入',
+      });
     }
 
     if (!(plan === '20000-16000' || plan === '3000-2700' || plan === '1-1')) {

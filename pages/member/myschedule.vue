@@ -1,15 +1,26 @@
 <script setup>
 import moment from 'moment';
 const reservations = ref([]);
-await useFetch('/api/users/userSchedule', {
-  method: 'get',
-}).then((response) => {
-  const data = response.data.value;
-  const error = response.error.value;
-  if (error) {
-  } else {
-    reservations.value = data;
-  }
+onMounted(async () => {
+  await useFetch('/api/auth/checkAuth', {
+    method: 'get',
+  }).then(async (response) => {
+    const data = response.data.value;
+    if (!data || !data.isLogin) {
+      await navigateTo('/login');
+    }
+  });
+
+  await useFetch('/api/users/userSchedule', {
+    method: 'get',
+  }).then((response) => {
+    const data = response.data.value;
+    const error = response.error.value;
+    if (error) {
+    } else {
+      reservations.value = data;
+    }
+  });
 });
 </script>
 <template>
@@ -23,8 +34,8 @@ await useFetch('/api/users/userSchedule', {
               <h2 class="text-center">
                 <span class="underline">我的課表</span>
               </h2>
-              <div>
-                <table class="table">
+              <div class="table-responsive">
+                <table class="table myschedule-table">
                   <thead>
                     <tr class="text-center">
                       <th class="col-1">上課日期</th>
