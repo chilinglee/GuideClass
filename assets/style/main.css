@@ -384,6 +384,7 @@ footer .icon-insta {
   }
 }
 .mypoint .main table {
+  min-width: 400px;
   text-align: center;
   border: #ffffff 3px solid;
 }
@@ -398,4 +399,7 @@ footer .icon-insta {
   color: #006bce;
   font-size: 700;
   margin-bottom: 2rem;
+}
+.myschedule .myschedule-table {
+  min-width: 800px;
 }/*# sourceMappingURL=main.css.map */
