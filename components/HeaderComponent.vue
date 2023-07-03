@@ -1,11 +1,15 @@
 <script setup>
-const { data } = await useFetch('/api/auth/checkAuth', {
-  method: 'get',
-});
+import { storeToRefs } from 'pinia';
+import { useUserStore } from '../store/user.store.js';
+const userStore = useUserStore();
+const { user } = storeToRefs(userStore);
+userStore.fetchUser();
 
 const logout = async () => {
+  userStore.logout();
   const authCookie = useCookie('access_token');
   authCookie.value = null;
+  await navigator('/');
 };
 </script>
 <template>
@@ -86,16 +90,17 @@ const logout = async () => {
                       </ul>
                     </div>
                   </div>
-                  <li class="nav-item mx-3" v-if="data.isLogin">
+                  <li class="nav-item mx-3" v-if="user.isLogin">
                     <a class="nav-link text-dark" href="/member/mypoint"
                       ><font-awesome-icon
                         icon="fas fa-comments-dollar"
                         class="text-primary"
                       ></font-awesome-icon>
-                      {{ new Intl.NumberFormat().format(data.point) }} 點</a
+                      {{ new Intl.NumberFormat().format(user?.point ?? 0) }}
+                      點</a
                     >
                   </li>
-                  <li class="nav-item mx-3" v-if="data.isLogin">
+                  <li class="nav-item mx-3" v-if="user?.isLogin">
                     <a class="nav-link text-dark" href="/member/membership"
                       ><font-awesome-icon
                         icon="fas fa-circle-user"
@@ -104,7 +109,7 @@ const logout = async () => {
                       會員中心</a
                     >
                   </li>
-                  <a href="/login" v-if="!data.isLogin">
+                  <a href="/login" v-if="!user?.isLogin">
                     <button
                       class="btn btn-warning text-light mx-3"
                       type="button"
@@ -112,7 +117,7 @@ const logout = async () => {
                       註冊/登入
                     </button></a
                   >
-                  <li class="nav-item mx-3" v-if="data.isLogin">
+                  <li class="nav-item mx-3" v-if="user?.isLogin">
                     <a class="nav-link text-dark" @click="logout" href=""
                       ><font-awesome-icon
                         icon="fas fa-arrow-right-from-bracket"

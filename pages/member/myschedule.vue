@@ -1,26 +1,15 @@
 <script setup>
 import moment from 'moment';
 const reservations = ref([]);
-onMounted(async () => {
-  await useFetch('/api/auth/checkAuth', {
-    method: 'get',
-  }).then(async (response) => {
-    const data = response.data.value;
-    if (!data || !data.isLogin) {
-      await navigateTo('/login');
-    }
-  });
-
-  await useFetch('/api/users/userSchedule', {
-    method: 'get',
-  }).then((response) => {
-    const data = response.data.value;
-    const error = response.error.value;
-    if (error) {
-    } else {
-      reservations.value = data;
-    }
-  });
+await useFetch('/api/users/userSchedule', {
+  method: 'get',
+}).then((response) => {
+  const data = response.data.value;
+  const error = response.error.value;
+  if (error) {
+  } else {
+    reservations.value = data;
+  }
 });
 </script>
 <template>

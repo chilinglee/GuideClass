@@ -3,6 +3,15 @@ const routeName = useRoute().name;
 const isMembership = routeName === 'member-membership';
 const isMypoint = routeName === 'member-mypoint';
 const isMyschedule = routeName === 'member-myschedule';
+
+import { storeToRefs } from 'pinia';
+import { useUserStore } from '../store/user.store.js';
+const userStore = useUserStore();
+const { user } = storeToRefs(userStore);
+
+if (!user.value?.isLogin) {
+  await navigateTo('/login');
+}
 </script>
 <template>
   <div class="tab col-lg-9 col-12">

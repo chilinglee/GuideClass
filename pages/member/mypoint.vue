@@ -3,29 +3,19 @@ import moment from 'moment';
 const { $swal } = useNuxtApp();
 const router = useRouter();
 const histories = ref([]);
-const user = ref({});
 
-onMounted(async () => {
-  await useFetch('/api/auth/checkAuth', {
-    method: 'get',
-  }).then(async (response) => {
-    const data = response.data.value;
-    const error = response.error.value;
-    user.value = data;
+import { storeToRefs } from 'pinia';
+import { useUserStore } from '../../store/user.store.js';
+const userStore = useUserStore();
+const { user } = storeToRefs(userStore);
 
-    if (!user.isLogin) {
-      await navigateTo('/login');
-    }
-  });
+await useFetch('/api/order/histories', {
+  method: 'get',
+}).then((response) => {
+  const data = response.data.value;
+  const error = response.error.value;
 
-  await useFetch('/api/order/histories', {
-    method: 'get',
-  }).then((response) => {
-    const data = response.data.value;
-    const error = response.error.value;
-
-    histories.value = data;
-  });
+  histories.value = data;
 });
 </script>
 <template>

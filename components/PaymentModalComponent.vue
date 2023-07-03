@@ -1,21 +1,46 @@
 <script setup>
 const { $swal } = useNuxtApp();
+const router = useRouter();
 const props = defineProps(['planPoint', 'planPrice']);
 const emit = defineEmits(['hideModal']);
 const paymentModal = ref(null);
 const count = ref(1);
+
+//userStore
+import { storeToRefs } from 'pinia';
+import { useUserStore } from '../store/user.store.js';
+const userStore = useUserStore();
+const { user } = storeToRefs(userStore);
 
 const resetCount = () => {
   count.value = 1;
 };
 
 const buy = async () => {
+  if (!user.value.isLogin) {
+    $swal
+      .fire({
+        title: '請先登入',
+        text: '即將導向登入頁',
+        icon: 'error',
+        comfirmButtonText: '確認',
+        timer: 3000,
+        timerProgressBar: true,
+        didClose: () => {
+          router.replace('/login');
+        },
+      })
+      .then((res) => {
+        if (res.isConfirmed) {
+          router.replace('/login');
+        }
+      });
+  }
   await useFetch('/api/auth/checkAuth', {
     method: 'get',
   }).then(async (response) => {
     const data = response.data.value;
     if (!data || !data.isLogin) {
-      await navigateTo('/login');
     }
   });
 
