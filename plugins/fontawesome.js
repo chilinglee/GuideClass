@@ -20,6 +20,8 @@ import {
   faChevronRight,
   faFireFlameCurved,
   faCircleUser,
+  faCommentsDollar,
+  faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -43,7 +45,9 @@ library.add(
   faChevronLeft,
   faChevronRight,
   faFireFlameCurved,
-  faCircleUser
+  faCircleUser,
+  faCommentsDollar,
+  faArrowRightFromBracket
 );
 
 // This is important, we are going to let Nuxt worry about the CSS

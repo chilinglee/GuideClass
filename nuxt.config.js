@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   css: [
     'bootstrap/dist/css/bootstrap.min.css',
     '@fortawesome/fontawesome-svg-core/styles.css',
+    'sweetalert2/dist/sweetalert2.min.css',
     '~/assets/style/main.css',
   ],
   plugins: [
