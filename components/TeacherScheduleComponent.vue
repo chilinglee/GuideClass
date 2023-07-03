@@ -63,7 +63,7 @@ const reserve = async (reserve_time) => {
 };
 
 const checkAndReserve = async (reserve_time) => {
-  const { data } = await useFetch(`/api/users/findMember`, {
+  const { data } = await useFetch(`/api/auth/checkAuth`, {
     method: 'get',
   });
 

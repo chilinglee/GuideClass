@@ -1,5 +1,5 @@
 <script setup>
-const { data } = await useFetch('/api/users/findMember', {
+const { data } = await useFetch('/api/auth/checkAuth', {
   method: 'get',
 });
 
