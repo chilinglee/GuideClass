@@ -31,7 +31,7 @@
                     <option value="sort-new">新加入</option>
                     <option value="sort-senior">資深</option>
                     <option value="sort-price-low">價格低</option>
-                    <option value="sort-price-hight">價格高</option>
+                    <option value="sort-price-high">價格高</option>
                   </select>
                 </div>
               </div>
@@ -77,6 +77,25 @@
                     我是一名英文家教，曾在加拿大溫哥華大學留學，主修外語教學。在我的教學中，我主要教授多益英文，幫助學生聼懂不同口音的英語，復習多益常考單詞，增加閲讀測驗能力，以期在多益考試中獲得高分。我的教學方法靈活多變，可以適應不同學生的需要，幫助他們在學習英文的過程中有效地提升能力。我相信，透過不斷的努力和決心，每一位學生都能在英文學習上取得成功.
                   </p>
                 </div>
+              </div>
+            </div>
+            <div class="teacher-pagination text-center">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-primary">
+                  <font-awesome-icon
+                    icon="fas fa-chevron-left"
+                  ></font-awesome-icon>
+                </button>
+                <button type="button" class="btn btn-outline-primary active">
+                  1
+                </button>
+                <button type="button" class="btn btn-outline-primary">2</button>
+                <button type="button" class="btn btn-outline-primary">3</button>
+                <button type="button" class="btn btn-outline-primary">
+                  <font-awesome-icon
+                    icon="fas fa-chevron-right"
+                  ></font-awesome-icon>
+                </button>
               </div>
             </div>
           </div>

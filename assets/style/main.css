@@ -237,6 +237,9 @@ footer .icon-insta {
 .teacher .teacher-info .price {
   text-shadow: #ffffff 3px 3px;
 }
+.teacher .teacher-pagination {
+  margin-top: 20px;
+}
 
 @media screen and (max-width: 768px) {
   .teacher .teacher-info img {
