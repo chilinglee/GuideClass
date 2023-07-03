@@ -13,7 +13,7 @@
   .dollar {
     width: 100%;
     padding: 50%;
-    background-image: url('../img/dollar.png');
+    background-image: url('assets/images/dollar.png');
     background-position: center;
     background-size: cover;
     position: relative;
@@ -27,32 +27,39 @@
 
   .schedule {
     overflow: auto;
-    table td {
-      border: 1px solid $primary;
+    .schedule-btn {
+      background-color: $bg-dark-blue;
+      color: $primary;
+      border-radius: 16px;
+    }
+    td {
+      border: 1px solid transparent;
+      background-color: transparent;
       text-align: center;
       min-width: 5rem;
-      vertical-align: middle;
+      vertical-align: top;
 
-      i {
-        font-size: 3rem;
+      div {
+        text-align: center;
+        padding: 0.5rem;
+        background-color: #fff;
+        border-radius: 0.5rem;
+        border: $bg-dark-blue 3px solid;
         color: $primary;
-        text-shadow: $warning 3px 3px;
+        margin: 3px;
+        cursor: pointer;
+      }
+    }
+    th {
+      p {
+        margin: 0;
       }
     }
     .day {
       background-color: $primary;
       text-align: center;
-      padding: 1rem;
+      padding: 0.5rem;
       border-radius: 0.5rem 0.5rem 0 0;
-      border: $bg-light-blue 1px solid;
-      color: $white;
-    }
-
-    .time {
-      text-align: center;
-      padding: 1rem;
-      background-color: $primary;
-      border-radius: 0.5rem 0 0 0.5rem;
       border: $bg-light-blue 1px solid;
       color: $white;
     }
