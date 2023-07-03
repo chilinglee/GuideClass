@@ -21,8 +21,8 @@ ReservationModel.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
-    reservation_period: {
-      type: DataTypes.ENUM('1', '2', '3', '4'),
+    reservation_time: {
+      type: DataTypes.TIME,
       allowNull: false,
     },
     class_fee: {
@@ -32,6 +32,19 @@ ReservationModel.init(
     is_deleted: {
       type: DataTypes.ENUM('0', '1'),
       defaultValue: '0',
+    },
+    full_reservation_time: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        return (
+          new Date(this.reservation_date).toDateString() +
+          ' ' +
+          this.reservation_time
+        );
+      },
+      set(value) {
+        throw new Error('full_reservation_time connot be set');
+      },
     },
   },
   {

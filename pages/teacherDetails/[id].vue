@@ -1,10 +1,12 @@
 <script setup>
 const teacher_id = useRoute().params.id;
 const teacher = ref({});
-const { data } = await useFetch(`/api/teachers/${teacher_id}`, {
+const teacherSchedule = ref([]);
+await useFetch(`/api/teachers/${teacher_id}`, {
   method: 'get',
+}).then((response) => {
+  teacher.value = response.data.value;
 });
-teacher.value = data.value;
 </script>
 <template>
   <div>
@@ -47,7 +49,7 @@ teacher.value = data.value;
             <div class="col-12 col-md-4 col-xl-2">
               <div class="dollar">
                 <p class="fs-2 fw-bolder w-100 text-primary">
-                  {{ teacher.price }}點 <br />
+                  {{ new Intl.NumberFormat().format(teacher.price) }}點 <br />
                   <span class="w-100 fs-6 text-center d-block"
                     >/{{ teacher.price_minutes }}分鐘</span
                   >
@@ -67,7 +69,10 @@ teacher.value = data.value;
             </div>
           </div>
           <hr class="w-75 mx-auto" />
-          <TeacherScheduleComponent></TeacherScheduleComponent>
+          <TeacherScheduleComponent
+            :teacher-id="teacher.teacher_id"
+            :teacher-name="teacher.name"
+          ></TeacherScheduleComponent>
         </div>
       </div>
     </section>

@@ -1,10 +1,16 @@
 <script setup>
 import moment from 'moment';
+const { $swal } = useNuxtApp();
+const router = useRouter();
 const initialDateOfWeek = ref('');
 const weekdates = ref([]);
+const teacherSchedule = ref([]);
+const props = defineProps(['teacherId', 'teacherName']);
 
 const thisWeek = () => {
-  initialDateOfWeek.value = moment().day(0)._d; //this sunday
+  initialDateOfWeek.value = moment()
+    .day(0)
+    .set({ hour: 0, minute: 0, second: 0, millisecond: 0 })._d; //this sunday
 };
 
 const lastWeek = () => {
@@ -18,12 +24,102 @@ const nextWeek = () => {
   initialDateOfWeek.value = moment(initialDateOfWeek.value).add(7, 'days')._d;
 };
 
-watch(initialDateOfWeek, (_new) => {
+watch(initialDateOfWeek, async (_new) => {
   weekdates.value = [];
   for (let i = 0; i < 7; i++) {
     weekdates.value.push(moment(_new).day(i).format('MM/DD'));
   }
+
+  await useFetch(
+    `/api/teacherSchedules/${
+      props.teacherId
+    }?initDate=${_new}&lastDate=${moment(_new).add(7, 'd')}`,
+    {
+      method: 'get',
+    }
+  ).then((response) => {
+    teacherSchedule.value = response.data.value;
+  });
 });
+
+const reserve = async (reserve_time) => {
+  $swal
+    .fire({
+      title: '確認預約課程',
+      html: `<p>教師：${props.teacherName}</p>
+    <p>時間：${moment(new Date(reserve_time).toISOString()).format(
+      'YYYY/MM/DD HH:mm'
+    )}</p>`,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: '確認',
+      cancelButtonText: '取消',
+    })
+    .then(async (result) => {
+      if (result.isConfirmed) {
+        checkAndReserve(reserve_time);
+      }
+    });
+};
+
+const checkAndReserve = async (reserve_time) => {
+  const { data } = await useFetch(`/api/users/findMember`, {
+    method: 'get',
+  });
+
+  if (data.value.isLogin) {
+    await useFetch(`/api/teacherSchedules/reserve`, {
+      method: 'post',
+      body: {
+        teacher_id: props.teacherId,
+        reserve_time,
+      },
+    }).then((response) => {
+      const data = response.data.value;
+      const error = response.error.value;
+      if (error) {
+        $swal.fire({
+          title: '預約失敗',
+          text: error.data.message,
+          icon: 'error',
+          showConfirmButton: true,
+          confirmButtonText: '確認',
+        });
+      } else if (data) {
+        $swal.fire({
+          title: '預約成功',
+          icon: 'success',
+          timer: 3000,
+          timerProgressBar: true,
+          showConfirmButton: true,
+          confirmButtonText: '確認',
+          didClose() {
+            location.reload();
+          },
+        });
+      }
+    });
+  } else {
+    $swal
+      .fire({
+        title: '尚未登入',
+        text: '即將導向登入頁',
+        icon: 'warning',
+        timer: 3000,
+        timerProgressBar: true,
+        showConfirmButton: true,
+        confirmButtonText: '登入頁',
+        didClose: () => {
+          router.replace('/login');
+        },
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          router.replace('/login');
+        }
+      });
+  }
+};
 
 thisWeek();
 </script>
@@ -101,64 +197,67 @@ thisWeek();
           <tbody>
             <tr>
               <td id="sun">
-                <div>09:00</div>
-                <div>10:00</div>
-                <div>11:00</div>
-                <div>12:00</div>
-                <div>13:00</div>
-                <div>14:00</div>
-                <div>15:00</div>
-                <div>16:00</div>
+                <div
+                  v-for="item in teacherSchedule[weekdates[0]]"
+                  :key="item"
+                  @click="reserve(item)"
+                >
+                  {{ moment(new Date(item).toISOString()).format('HH:mm') }}
+                </div>
               </td>
               <td id="mon">
-                <div>07:00</div>
-                <div>08:00</div>
-                <div>19:00</div>
-                <div>20:00</div>
-                <div>21:00</div>
-                <div>22:00</div>
+                <div
+                  v-for="item in teacherSchedule[weekdates[1]]"
+                  :key="item"
+                  @click="reserve(item)"
+                >
+                  {{ moment(new Date(item).toISOString()).format('HH:mm') }}
+                </div>
               </td>
               <td id="tue">
-                <div>07:00</div>
-                <div>08:00</div>
-                <div>19:00</div>
-                <div>20:00</div>
-                <div>21:00</div>
-                <div>22:00</div>
+                <div
+                  v-for="item in teacherSchedule[weekdates[2]]"
+                  :key="item"
+                  @click="reserve(item)"
+                >
+                  {{ moment(new Date(item).toISOString()).format('HH:mm') }}
+                </div>
               </td>
               <td id="wed">
-                <div>07:00</div>
-                <div>08:00</div>
-                <div>19:00</div>
-                <div>20:00</div>
-                <div>21:00</div>
-                <div>22:00</div>
+                <div
+                  v-for="item in teacherSchedule[weekdates[3]]"
+                  :key="item"
+                  @click="reserve(item)"
+                >
+                  {{ moment(new Date(item).toISOString()).format('HH:mm') }}
+                </div>
               </td>
               <td id="thur">
-                <div>07:00</div>
-                <div>08:00</div>
-                <div>19:00</div>
-                <div>20:00</div>
-                <div>21:00</div>
-                <div>22:00</div>
+                <div
+                  v-for="item in teacherSchedule[weekdates[4]]"
+                  :key="item"
+                  @click="reserve(item)"
+                >
+                  {{ moment(new Date(item).toISOString()).format('HH:mm') }}
+                </div>
               </td>
               <td id="fri">
-                <div>07:00</div>
-                <div>08:00</div>
-                <div>19:00</div>
-                <div>20:00</div>
-                <div>21:00</div>
-                <div>22:00</div>
+                <div
+                  v-for="item in teacherSchedule[weekdates[5]]"
+                  :key="item"
+                  @click="reserve(item)"
+                >
+                  {{ moment(new Date(item).toISOString()).format('HH:mm') }}
+                </div>
               </td>
               <td id="sat">
-                <div>09:00</div>
-                <div>10:00</div>
-                <div>11:00</div>
-                <div>12:00</div>
-                <div>13:00</div>
-                <div>14:00</div>
-                <div>15:00</div>
-                <div>16:00</div>
+                <div
+                  v-for="item in teacherSchedule[weekdates[6]]"
+                  :key="item"
+                  @click="reserve(item)"
+                >
+                  {{ moment(new Date(item).toISOString()).format('HH:mm') }}
+                </div>
               </td>
             </tr>
           </tbody>
