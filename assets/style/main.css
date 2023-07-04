@@ -1,0 +1,406 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Oswald:wght@200;300;400;500;600;700&family=Righteous&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  font-family: "Noto Sans TC", sans-serif !important;
+}
+
+header .brand-title {
+  font-family: "Oswald", sans-serif !important;
+}
+header .nav-search {
+  border: none !important;
+  height: 42px;
+}
+
+.header-space {
+  padding: 80px auto;
+}
+
+footer {
+  background-color: #c1daff;
+  padding-top: 50px;
+}
+footer .icon-insta {
+  color: #c13584;
+}
+
+.brand-title {
+  font-family: "Oswald", sans-serif;
+}
+
+.banner {
+  padding-top: 62px;
+  background: #def1ff;
+}
+
+.underline {
+  position: relative;
+  z-index: 1;
+}
+.underline::before {
+  display: block;
+  width: 100%;
+  height: 0.5rem;
+  content: "";
+  background-color: #ffdf70;
+  position: absolute;
+  right: 0;
+  bottom: 0.5rem;
+  z-index: -1;
+}
+
+.board {
+  padding: 75px 0px;
+  background-color: #ffffff;
+  display: block;
+}
+
+.img-top {
+  position: relative;
+}
+.img-top .top-title {
+  font-size: 14px;
+  color: #ffffff;
+  display: block;
+  padding: 3px 5px;
+  position: absolute;
+  left: 0;
+  top: 15px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+.img-top img {
+  height: 275px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.img-top p.rating-star {
+  margin: 0;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  background-color: #000;
+  opacity: 0.7;
+  border-radius: 13px;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 4px 10px;
+  letter-spacing: 2px;
+}
+
+.rating-std {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.reasons {
+  padding: 75px 0px;
+  background-color: #def1ff;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+}
+.reasons img {
+  border-radius: 1rem;
+}
+.reasons::before {
+  content: url("../images/dec1.png");
+  position: absolute;
+  top: -460px;
+  left: -400px;
+  z-index: 1;
+}
+.reasons::after {
+  content: url("../images/dec2.png");
+  position: absolute;
+  bottom: -480px;
+  right: -225px;
+  z-index: 1;
+  transform: rotate(20deg);
+}
+
+.steps {
+  padding: 50px 0px;
+  background-color: #c1daff;
+}
+.steps h2 {
+  text-shadow: #ffaf44 2px 2px;
+}
+.steps .step-intro {
+  padding: 50%;
+  position: relative;
+  border: 4px solid #ffffff;
+  border-radius: 1rem;
+}
+.steps .step-intro p,
+.steps .step-intro h3 {
+  position: absolute;
+}
+.steps .step-intro .step-title {
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 0.5rem 0;
+}
+.steps .step-intro .step-content {
+  left: calc(50% - 5rem);
+  top: calc(50% - 2.75rem);
+  font-size: 2.5rem;
+}
+.steps .step-intro .step-icon {
+  bottom: 0;
+  right: 0;
+}
+
+.comment {
+  padding: 50px 0px;
+}
+.comment .quote {
+  background-color: #def1ff;
+  border-radius: 0.5rem;
+  position: relative;
+}
+.comment .quote .quote-icon {
+  font-size: 2.5rem;
+}
+.comment .quote .comment-detail {
+  height: 275px;
+  overflow: auto;
+}
+.comment .quote::before {
+  content: "";
+  position: absolute;
+  border-width: 48px;
+  border-style: solid;
+  border-color: #def1ff transparent transparent #def1ff;
+  left: calc(30% - 24px);
+  bottom: -48px;
+}
+.comment .quote::after {
+  content: "";
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  bottom: -32px;
+  left: 16px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+.comment .row .quote-wrap:first-child .quote::after {
+  background-image: url("https://images.unsplash.com/photo-1620613908146-bb9a8bbb7eca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1854&q=80");
+}
+.comment .row .quote-wrap:nth-child(2) .quote::after {
+  background-image: url("https://images.unsplash.com/photo-1542327897-d73f4005b533?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
+}
+.comment .row .quote-wrap:nth-child(3) .quote::after {
+  background-image: url("https://images.unsplash.com/photo-1513097633097-329a3a64e0d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=796&q=80");
+}
+
+@media screen and (max-width: 992px) {
+  .reasons::before {
+    display: none;
+  }
+  .reasons::after {
+    display: none;
+  }
+}
+.teacher {
+  min-height: 80vh;
+  background-color: #fff;
+}
+.teacher .teacher-info {
+  margin: 1.5rem;
+  border: 4px #c1daff solid;
+  background-color: #def1ff;
+}
+.teacher .teacher-info img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: right;
+     object-position: right;
+  display: block;
+}
+.teacher .teacher-info .teacher-title {
+  text-shadow: #ffffff 3px 3px;
+}
+.teacher .teacher-info .price {
+  text-shadow: #ffffff 3px 3px;
+}
+.teacher .teacher-info .teacher-intro {
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  height: 10.5em;
+  line-height: 1.5em;
+}
+.teacher .teacher-pagination {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .teacher .teacher-info img {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+.teacher-detail {
+  min-height: 80vh;
+}
+.teacher-detail .information {
+  background-color: #def1ff;
+  border: 2px #006bce solid;
+}
+.teacher-detail .information .content {
+  max-height: 400px;
+  overflow: auto;
+}
+.teacher-detail .dollar {
+  width: 100%;
+  padding: 50%;
+  background-image: url("assets/images/dollar.png");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+.teacher-detail .dollar p {
+  position: absolute;
+  left: calc(50% - 4rem);
+  top: calc(50% - 1.75rem);
+}
+.teacher-detail .schedule {
+  overflow: auto;
+}
+.teacher-detail .schedule .schedule-btn {
+  background-color: #c1daff;
+  color: #006bce;
+  border-radius: 16px;
+}
+.teacher-detail .schedule td {
+  border: 1px solid transparent;
+  background-color: transparent;
+  text-align: center;
+  min-width: 5rem;
+  vertical-align: top;
+}
+.teacher-detail .schedule td div {
+  text-align: center;
+  padding: 0.5rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  border: #c1daff 3px solid;
+  color: #006bce;
+  margin: 3px;
+  cursor: pointer;
+}
+.teacher-detail .schedule th p {
+  margin: 0;
+}
+.teacher-detail .schedule .day {
+  background-color: #006bce;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  border: #def1ff 1px solid;
+  color: #ffffff;
+}
+
+.login-register {
+  min-height: 80vh;
+}
+.login-register .member-form {
+  border: #ced4da solid 2px;
+  border-radius: 0.375rem;
+}
+
+.priceplan {
+  background-color: #def1ff;
+  min-height: 80vh;
+}
+.priceplan h3 {
+  text-shadow: #fff 3px 3px;
+}
+.priceplan .card {
+  text-align: center;
+}
+
+.membership {
+  min-height: 80vh;
+}
+.membership .main h2 {
+  color: #006bce;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.membership .main .membership-form {
+  padding: 2.5rem;
+  border: #ced4da 2px solid;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  margin-bottom: 80px;
+}
+
+.mypoint {
+  min-height: 80vh;
+}
+.mypoint .main h2 > span {
+  color: #006bce;
+  font-weight: 700;
+}
+.mypoint .main .remians {
+  color: #006bce;
+}
+.mypoint .main .remians .icon-point {
+  width: 100%;
+  font-size: 72px;
+  text-align: center;
+}
+.mypoint .main .remians .wording-point {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.mypoint .main .remians .btn-buy {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #006bce;
+  animation: swinkle 4s linear infinite;
+}
+@keyframes swinkle {
+  0%, 50% {
+    box-shadow: none;
+  }
+  25%, 75% {
+    box-shadow: 0 0 40px rgb(180, 180, 180);
+  }
+}
+.mypoint .main table {
+  min-width: 400px;
+  text-align: center;
+  border: #ffffff 3px solid;
+}
+.mypoint .main table tr {
+  margin: 10px auto;
+}
+
+.myschedule {
+  min-height: 80vh;
+}
+.myschedule h2 {
+  color: #006bce;
+  font-size: 700;
+  margin-bottom: 2rem;
+}
+.myschedule .myschedule-table {
+  min-width: 800px;
+}/*# sourceMappingURL=main.css.map */

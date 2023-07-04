@@ -1,0 +1,50 @@
+.teacher {
+  min-height: 80vh;
+  background-color: #fff;
+
+  .teacher-info {
+    margin: 1.5rem;
+    border: 4px $bg-dark-blue solid;
+    background-color: $bg-light-blue;
+
+    img {
+      width: 8rem;
+      height: 8rem;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: right;
+      display: block;
+    }
+
+    .teacher-title {
+      text-shadow: $white 3px 3px;
+    }
+
+    .price {
+      text-shadow: $white 3px 3px;
+    }
+
+    .teacher-intro {
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+      overflow: hidden;
+      height: 10.5em;
+      line-height: 1.5em;
+    }
+  }
+
+  .teacher-pagination {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .teacher {
+    .teacher-info {
+      img {
+        width: 6rem;
+        height: 6rem;
+      }
+    }
+  }
+}

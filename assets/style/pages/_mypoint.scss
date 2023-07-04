@@ -1,0 +1,52 @@
+.mypoint {
+  min-height: 80vh;
+  // background-color: $bg-light-blue;
+  .main {
+    h2 > span {
+      color: $primary;
+      font-weight: 700;
+    }
+
+    .remians {
+      color: $primary;
+      .icon-point {
+        width: 100%;
+        font-size: 72px;
+        text-align: center;
+      }
+
+      .wording-point {
+        width: 100%;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+
+      .btn-buy {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: $primary;
+        animation: swinkle 4s linear infinite;
+      }
+
+      @keyframes swinkle {
+        0%,
+        50% {
+          box-shadow: none;
+        }
+
+        25%,
+        75% {
+          box-shadow: 0 0 40px rgb(180, 180, 180);
+        }
+      }
+    }
+
+    table {
+      min-width: 400px;
+      text-align: center;
+      border: $white 3px solid;
+      tr {
+        margin: 10px auto;
+      }
+    }
+  }
+}

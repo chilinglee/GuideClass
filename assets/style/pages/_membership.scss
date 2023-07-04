@@ -1,0 +1,20 @@
+.membership {
+  min-height: 80vh;
+  // background-color: $bg-light-blue;
+
+  .main {
+    h2 {
+      color: $primary;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .membership-form {
+      padding: 2.5rem;
+      border: $gray-light 2px solid;
+      border-radius: 0.5rem;
+      background-color: $white;
+      margin-bottom: 80px;
+    }
+  }
+}

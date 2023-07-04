@@ -1,0 +1,23 @@
+// base
+@import 'base/reset';
+
+//module
+@import 'modules/color';
+@import 'modules/font';
+
+//layout
+@import 'layout/header';
+@import 'layout/footer';
+
+//pages
+@import 'pages/home';
+@import 'pages/teacher';
+@import 'pages/teacherDetail';
+@import 'pages/login_register';
+@import 'pages/priceplan';
+@import 'pages/membership';
+@import 'pages/mypoint';
+@import 'pages/myschedule';
+
+//bootstrap
+//@import '../../node_modules/bootstrap/scss/bootstrap';

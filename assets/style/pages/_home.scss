@@ -1,0 +1,200 @@
+.brand-title {
+  font-family: 'Oswald', sans-serif;
+}
+.banner {
+  padding-top: 62px;
+  background: $bg-light-blue;
+}
+
+.underline {
+  position: relative;
+  z-index: 1;
+  &::before {
+    display: block;
+    width: 100%;
+    height: 0.5rem;
+    content: '';
+    background-color: $light-yellow;
+    position: absolute;
+    right: 0;
+    bottom: 0.5rem;
+    z-index: -1;
+  }
+}
+
+.board {
+  padding: 75px 0px;
+  background-color: $white;
+  display: block;
+}
+
+.img-top {
+  position: relative;
+  .top-title {
+    font-size: 14px;
+    color: $white;
+    display: block;
+    padding: 3px 5px;
+    position: absolute;
+    left: 0;
+    top: 15px;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+
+  img {
+    height: 275px;
+    object-fit: cover;
+  }
+
+  p.rating-star {
+    margin: 0;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    background-color: #000;
+    opacity: 0.7;
+    border-radius: 13px;
+    color: $white;
+    font-size: 12px;
+    padding: 4px 10px;
+    letter-spacing: 2px;
+  }
+}
+
+.rating-std {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reasons {
+  padding: 75px 0px;
+  background-color: $bg-light-blue;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+  img {
+    border-radius: 1rem;
+  }
+
+  &::before {
+    content: url('../images/dec1.png');
+    position: absolute;
+    top: -460px;
+    left: -400px;
+    z-index: 1;
+  }
+
+  &::after {
+    content: url('../images/dec2.png');
+    position: absolute;
+    bottom: -480px;
+    right: -225px;
+    z-index: 1;
+    transform: rotate(20deg);
+  }
+}
+
+.steps {
+  padding: 50px 0px;
+  background-color: #c1daff;
+  //background-color: #cfe5ff;
+
+  h2 {
+    text-shadow: $warning 2px 2px;
+  }
+
+  .step-intro {
+    padding: 50%;
+    position: relative;
+    border: 4px solid $white;
+    border-radius: 1rem;
+    p,
+    h3 {
+      position: absolute;
+    }
+
+    .step-title {
+      top: 0;
+      left: 0;
+      background-color: $white;
+      border-radius: 0.5rem 0;
+    }
+
+    .step-content {
+      left: calc(50% - 5rem);
+      top: calc(50% - 2.75rem);
+      font-size: 2.5rem;
+    }
+
+    .step-icon {
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
+
+.comment {
+  padding: 50px 0px;
+
+  .quote {
+    background-color: $bg-light-blue;
+    border-radius: 0.5rem;
+    position: relative;
+    .quote-icon {
+      font-size: 2.5rem;
+    }
+
+    .comment-detail {
+      height: 275px;
+      overflow: auto;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      border-width: 48px;
+      border-style: solid;
+      border-color: $bg-light-blue transparent transparent $bg-light-blue;
+      left: calc(30% - 24px);
+      bottom: -48px;
+    }
+
+    &::after {
+      content: '';
+      width: 64px;
+      height: 64px;
+      position: absolute;
+      bottom: -32px;
+      left: 16px;
+      background-position: center;
+      background-size: cover;
+      border-radius: 50%;
+    }
+  }
+
+  .row .quote-wrap:first-child .quote::after {
+    background-image: url('https://images.unsplash.com/photo-1620613908146-bb9a8bbb7eca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1854&q=80');
+  }
+
+  .row .quote-wrap:nth-child(2) .quote::after {
+    background-image: url('https://images.unsplash.com/photo-1542327897-d73f4005b533?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
+  }
+
+  .row .quote-wrap:nth-child(3) .quote::after {
+    background-image: url('https://images.unsplash.com/photo-1513097633097-329a3a64e0d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=796&q=80');
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .reasons {
+    &::before {
+      display: none;
+    }
+    &::after {
+      display: none;
+    }
+  }
+}
