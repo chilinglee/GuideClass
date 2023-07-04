@@ -29,4 +29,8 @@ export default defineNuxtConfig({
     DATABASE_PASSWORD: process.env.DATABASE_PASSWORD,
     JWT_SECRET: process.env.JWT_SECRET,
   },
+  ssr: true,
+  nitro: {
+    preset: 'node-server',
+  },
 });
