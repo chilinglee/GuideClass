@@ -8,4 +8,23 @@
   .myschedule-table {
     min-width: 800px;
   }
+
+  .commentModal {
+    .rate {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+    .star {
+      color: rgba(0, 0, 0, 0.25);
+      margin-right: 3px;
+    }
+    input:checked ~ label {
+      color: $warning;
+    }
+
+    textarea {
+      resize: none;
+    }
+  }
 }

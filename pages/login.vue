@@ -71,6 +71,7 @@ const login = async () => {
                     type="button"
                     class="btn btn-warning text-light"
                     @click="login"
+                    @keyup.enter="login"
                   >
                     登入
                   </button>

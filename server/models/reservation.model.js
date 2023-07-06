@@ -33,6 +33,10 @@ ReservationModel.init(
       type: DataTypes.ENUM('0', '1'),
       defaultValue: '0',
     },
+    is_commented: {
+      type: DataTypes.ENUM('0', '1'),
+      defaultValue: '0',
+    },
     full_reservation_time: {
       type: DataTypes.VIRTUAL,
       get() {

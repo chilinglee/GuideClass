@@ -29,6 +29,9 @@ ReservationDetailModel.init(
     is_deleted: {
       type: DataTypes.ENUM('0', '1'),
     },
+    is_commented: {
+      type: DataTypes.ENUM('0', '1'),
+    },
     t_id: {
       type: DataTypes.STRING(36),
     },
