@@ -1,6 +1,10 @@
 <script setup>
 import moment from 'moment';
+const { $bootstrap } = useNuxtApp();
 const reservations = ref([]);
+let modal = '';
+const reservationId = ref('');
+
 await useFetch('/api/users/userSchedule', {
   method: 'get',
 }).then((response) => {
@@ -11,10 +15,25 @@ await useFetch('/api/users/userSchedule', {
     reservations.value = data;
   }
 });
+
+const showModal = (id) => {
+  reservationId.value = id;
+  modal.show();
+};
+
+const hideModal = () => {
+  modal.hide();
+};
+
+onMounted(() => {
+  modal = new $bootstrap.Modal(commentModal, {
+    backdrop: 'static',
+  });
+});
 </script>
 <template>
-  <div>
-    <div class="container-fluid header-space myschedule">
+  <div class="myschedule">
+    <div class="container-fluid header-space">
       <div class="container">
         <div class="row pt-5 justify-content-center">
           <MemberTabComponent></MemberTabComponent>
@@ -33,6 +52,7 @@ await useFetch('/api/users/userSchedule', {
                       <th class="col-1">狀態</th>
                       <th class="col-1">購課點數</th>
                       <th class="col-2">購課時間</th>
+                      <th class="col-1">評價</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -61,6 +81,16 @@ await useFetch('/api/users/userSchedule', {
                           )
                         }}
                       </td>
+                      <td>
+                        <button
+                          class="btn btn-outline-warning"
+                          @click="showModal(item.reservation_id)"
+                          v-if="item.is_commented != '1'"
+                        >
+                          評價
+                        </button>
+                        <p class="mb-0 text-primary" v-else>已評價</p>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -70,5 +100,9 @@ await useFetch('/api/users/userSchedule', {
         </div>
       </div>
     </div>
+    <CommentModalComponent
+      :reservation-id="reservationId"
+      @hide-modal="hideModal"
+    ></CommentModalComponent>
   </div>
 </template>
