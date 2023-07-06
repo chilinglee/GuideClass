@@ -15,7 +15,9 @@ const hideModal = () => {
 };
 
 onMounted(() => {
-  modal = new $bootstrap.Modal(paymentModal);
+  modal = new $bootstrap.Modal(paymentModal, {
+    backdrop: 'static',
+  });
 });
 </script>
 <template>

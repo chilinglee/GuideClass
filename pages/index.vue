@@ -110,7 +110,9 @@
                     </p>
                   </div>
                 </div>
-                <a href="#" class="btn btn-warning w-100 text-white"
+                <a
+                  href="/teacherDetails/8f019619-1824-4276-ac5b-e27eef6cbf35"
+                  class="btn btn-warning w-100 text-white"
                   >瞭解更多</a
                 >
               </div>
@@ -177,7 +179,9 @@
                     </p>
                   </div>
                 </div>
-                <a href="#" class="btn btn-warning w-100 text-white"
+                <a
+                  href="/teacherDetails/a6836b16-dcbc-4903-9c99-36d2f5081efb"
+                  class="btn btn-warning w-100 text-white"
                   >瞭解更多</a
                 >
               </div>
@@ -242,7 +246,9 @@
                     </p>
                   </div>
                 </div>
-                <a href="#" class="btn btn-warning w-100 text-white"
+                <a
+                  href="/teacherDetails/feee793a-632d-4ef2-8b63-bb3c9a0914af"
+                  class="btn btn-warning w-100 text-white"
                   >瞭解更多</a
                 >
               </div>
