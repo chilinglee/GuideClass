@@ -403,4 +403,19 @@ footer .icon-insta {
 }
 .myschedule .myschedule-table {
   min-width: 800px;
+}
+.myschedule .commentModal .rate {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.myschedule .commentModal .star {
+  color: rgba(0, 0, 0, 0.25);
+  margin-right: 3px;
+}
+.myschedule .commentModal input:checked ~ label {
+  color: #ffaf44;
+}
+.myschedule .commentModal textarea {
+  resize: none;
 }/*# sourceMappingURL=main.css.map */
