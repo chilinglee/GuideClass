@@ -85,11 +85,20 @@ onMounted(() => {
                         <button
                           class="btn btn-outline-warning"
                           @click="showModal(item.reservation_id)"
-                          v-if="item.is_commented != '1'"
+                          v-if="
+                            item.is_commented == '0' && item.status == '已完成'
+                          "
                         >
                           評價
                         </button>
-                        <p class="mb-0 text-primary" v-else>已評價</p>
+                        <p
+                          class="mb-0 text-primary"
+                          v-else-if="
+                            item.is_commented == '1' && item.status == '已完成'
+                          "
+                        >
+                          已評價
+                        </p>
                       </td>
                     </tr>
                   </tbody>
